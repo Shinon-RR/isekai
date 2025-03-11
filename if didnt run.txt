@@ -1,0 +1,3 @@
+C:\Users\Administrator\Desktop\SPCODE\rl   < 이 부분을 rl.js 파일이 있는 경로로 설정하고 이 부분을 삭제 후 .bat 파일로 저장하세요
+node rl.js
+pause
