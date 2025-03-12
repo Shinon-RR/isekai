@@ -645,6 +645,7 @@ function openiv() {
         break;
       case 0:
         SetUi("yb", "내 가방", "bb", p1.bag[0].char)
+
         // anitext("인벤닫기", 0.1, "y", 3);
         Gdata.finv = false
         break;

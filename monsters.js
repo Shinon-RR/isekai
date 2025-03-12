@@ -1359,7 +1359,7 @@ const monsters = {
     art: "golem-c",
     hp: 500,
     spd: 20,
-    dmg: 250,
+    dmg: 200,
     def: 5,
     buf: [{ ...debuffs.golem_def }],
     tk1: '"!!!"',
@@ -1379,7 +1379,7 @@ const monsters = {
     atk() {
       let crd = rand(100)
       fui(Gdata.monster.art);
-      if (crd < 70) {
+      if (crd < 30) {
         anitext("골렘이 위협적인 공격을 가한다!", 0.1, "c", 1);
         fui("golem-c.atk");
         anitext('"..."', 0.1, "w", 2);

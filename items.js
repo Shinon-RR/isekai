@@ -2627,7 +2627,7 @@ const items = {
     },
   },
   a2: {
-    itemCode: "a3",
+    itemCode: "a2",
     class: "defender",
     type: "armor",
     craft: false,
@@ -2649,7 +2649,7 @@ const items = {
     },
   },
   s2: {
-    itemCode: "s3",
+    itemCode: "s2",
     class: "defender",
     type: "shoes",
     craft: false,
@@ -2671,7 +2671,7 @@ const items = {
     },
   },
   g2: {
-    itemCode: "g3",
+    itemCode: "g2",
     class: "defender",
     type: "gloves",
     craft: false,
@@ -2693,7 +2693,7 @@ const items = {
     },
   },
   p2: {
-    itemCode: "p3",
+    itemCode: "p2",
     class: "defender",
     type: "pendant",
     craft: false,
@@ -2904,7 +2904,7 @@ const items = {
     },
   },
   a5: {
-    itemCode: "a3",
+    itemCode: "a5",
     class: "rogue",
     type: "armor",
     craft: false,
@@ -2927,7 +2927,7 @@ const items = {
     },
   },
   s5: {
-    itemCode: "s3",
+    itemCode: "s5",
     class: "rogue",
     type: "shoes",
     craft: false,
@@ -2949,7 +2949,7 @@ const items = {
     },
   },
   g5: {
-    itemCode: "g3",
+    itemCode: "g5",
     class: "rogue",
     type: "gloves",
     craft: false,
@@ -2993,7 +2993,7 @@ const items = {
     },
   },
   wr5: {
-    itemCode: "ww3",
+    itemCode: "wr5",
     class: "rogue",
     type: "wepon",
     craft: false,
@@ -3823,7 +3823,7 @@ const items = {
     },
   },
   tg1: {
-    itemCode: "th1",
+    itemCode: "tg1",
     class: "tenster",
     type: "hat",
     craft: false,
@@ -3844,7 +3844,7 @@ const items = {
     },
   },
   tp1: {
-    itemCode: "th1",
+    itemCode: "tp1",
     class: "tenster",
     type: "hat",
     craft: false,
@@ -3865,7 +3865,7 @@ const items = {
     },
   },
   tw1: {
-    itemCode: "th1",
+    itemCode: "tw1",
     class: "tenster",
     type: "hat",
     craft: false,
