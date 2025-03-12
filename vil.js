@@ -272,7 +272,7 @@ const vil = {
         specName: "길드",
         special() {
             Gdata.nowtalk = "guild"
-            let Qlt = [quest.guild_0, quest.guild_1, quest.guild_2, quest.guild_3, quest.main_4, quest.main_5,quest.main_6]
+            let Qlt = [quest.guild_0, quest.guild_1, quest.guild_2, quest.guild_3, quest.main_4, quest.main_5, quest.main_6]
             checkQ()
             SetUi("b", "길드", "gb", "guild");
             anitext('"어서오세요 모험가님!"', 0.1, "y", 2);
@@ -2334,14 +2334,16 @@ const vil = {
         type: "hunt",
         name: " 빛이 닿는 곳 ",
         char: "luminousRealm",
-        monstersList: [monsters.sunmoon, monsters.gsunmoon],
+        monstersList: [monsters.sunmoon, monsters.gsunmoon, monsters.rzdm],
         // 돌발 몬스터 출현 확률
         dolbal: 10,
         near: ["deepForest", "kivotos"],
         looking(num) {
             if (rand(100) <= 30 || num === 1) {
                 let rd = rand(100)
-                if (rd <= 85) {
+                if (rd <= 30) {
+                    fight(monsters.rzdm, 1)
+                } else if (rd <= 85) {
                     fight(monsters.sunmoon, 1.5)
                 } else {
                     fight(monsters.gsunmoon, 1)
@@ -2674,7 +2676,7 @@ const vil = {
                 if (r <= 45) {
                     fight(monsters.golemTypeC, 2)
                 } else if (r <= 95) {
-                    fight(monsters.rzdm, 1)
+                    fight(monsters.rzdm, rand(3) + 1)
                 } {
                     fight(monsters.trabbit, 1)
                 }
