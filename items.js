@@ -1583,7 +1583,7 @@ const items = {
     itemName: "호그의 엄니",
     iteminfo: "뾰족하다. 찔리고 아팠던 이유가 충분히 납득이 간다.",
     itemDesc: "몬스터의 드랍 아이템",
-    price: 100,
+    price: 150,
     hav: 0,
 
     active() {

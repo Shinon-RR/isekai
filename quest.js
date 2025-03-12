@@ -514,7 +514,6 @@ const quest = {
                 anigiv(this.temtarget[gi], (-1 * this.needtem[gi]), 0)
             }
             anitext('"수고하셨어요 모험가님!"', 0.1, "y", 2);
-            anigiv(items.i3, 1, 0)
             p1.exp += 50
             p1.gold += 1000
             this.clear = true
@@ -528,13 +527,13 @@ const quest = {
         type: "killtem",
         // 반복 가능 여부
         repeatable: true,
-        name: "숲의 라이쿠 토벌",
-        info: '"깊은 숲"을 탐험하여 숲의 라이쿠를 토벌하고\n라이쿠의 가시를 들고 길드로 향하자.',
-        reward: "1000골드, 겸험치 50",
-        killtarget: [monsters.forest_Raiku],
+        name: "와일드 호그 토벌",
+        info: '"넓은 들판"을 탐험하여 호그를 토벌하고\n호그의 엄니를 들고 길드로 향하자.',
+        reward: "500골드, 겸험치 50",
+        killtarget: [monsters.boar],
         needKill: [2],
         nowKill: [0],
-        temtarget: [items.e9],
+        temtarget: [items.e26],
         needtem: [2],
         nowtem: [0],
         clear: false,
@@ -554,9 +553,8 @@ const quest = {
                 anigiv(this.temtarget[gi], (-1 * this.needtem[gi]), 0)
             }
             anitext('"수고하셨어요 모험가님!"', 0.1, "y", 2);
-            anigiv(items.i3, 1, 0)
             p1.exp += 50
-            p1.gold += 1000
+            p1.gold += 500
             this.clear = true
             this.clearCount++
             checklv()
