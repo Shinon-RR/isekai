@@ -16,6 +16,7 @@ const { skills, checkbuff } = require("./skills");
 
 //전투 부분
 function fight(mon, baesu) {
+  Gdata.monster = {}
   Gdata.monster = { ...mon }
   Gdata.monster.hp = Math.round(Gdata.monster.hp * baesu)
   Gdata.monster.dmg = Math.round(Gdata.monster.dmg * baesu)
@@ -363,6 +364,7 @@ function fight(mon, baesu) {
   } else {
     run = 0;
   }
+
 }
 
 

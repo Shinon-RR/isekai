@@ -764,7 +764,7 @@ const npc = {
             name: "세이아",
             havQ: true,
             char: "seia",
-            Qlist: [quest.q4, quest.main_0],
+            Qlist: [quest.q4, quest.main_0,quest.main_1],
             hello() {
                 anitext('"..?"', 0.2, "y", 2);
                 br()

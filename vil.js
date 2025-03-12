@@ -272,7 +272,7 @@ const vil = {
         specName: "길드",
         special() {
             Gdata.nowtalk = "guild"
-            let Qlt = [quest.guild_0, quest.guild_1, quest.guild_2, quest.guild_3, quest.main_4, quest.main_5]
+            let Qlt = [quest.guild_0, quest.guild_1, quest.guild_2, quest.guild_3, quest.main_4, quest.main_5,quest.main_6]
             checkQ()
             SetUi("b", "길드", "gb", "guild");
             anitext('"어서오세요 모험가님!"', 0.1, "y", 2);
