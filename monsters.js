@@ -23,8 +23,8 @@ function fight(mon, baesu) {
   Gdata.FMdata.maxhp = Gdata.monster.hp
   checkstat()
   for (let si = 0; si < p1.skill.length; si++) {
-    if (p1.skill[i].yesCo) {
-      p1.skill[i].used = p1.skill[i].maxUse
+    if (p1.skill[si].yesCo) {
+      p1.skill[si].used = p1.skill[i].maxUse
     }
   }
 

@@ -1563,7 +1563,7 @@ function fgame() {
     }
     cl();
     console.log(line);
-    process.stdout.write(chalk.green("          Chapter : " + cpt));
+    process.stdout.write(chalk.yellowBright(" Chapter : " + cpt));
     br();
     console.log(line);
     process.stdout.write("                       ");
