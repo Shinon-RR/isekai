@@ -5,6 +5,7 @@ const { sleep, aniprt, br, cl, anitext, anigiv, rand, checkQ, leadingZeros, SetU
 const { p1, Gdata } = require("./users-data");
 const readlineSync = require("readline-sync");
 const { quest } = require("./quest");
+const fs = require('fs');
 // const { Gdata } = require("./G-data");
 
 const npc = {

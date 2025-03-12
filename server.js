@@ -1,7 +1,6 @@
 // import chalk from "chalk";
 // import figlet from "figlet";
 // import readlineSync from "readline-sync";
-const path = require('path');
 
 const { vil } = require("./vil");
 const { default: chalk } = require("chalk");
@@ -78,9 +77,6 @@ const fs = require('fs');
 const { quest } = require('./quest');
 
 let tsmon = _tsmon;
-
-const directory = "./savefiles";
-const filename = "save-auto.json";
 // const content = "Hello, world!";
 
 // const path = require('path');
@@ -1507,9 +1503,9 @@ function fgame() {
         cl();
     }
   }
-  let color
-  let name
-  let namecolor
+  let color = "gb"
+  let name = `이계`
+  let namecolor = "cb"
   let char
   let cpt
   function set() {
@@ -1719,6 +1715,7 @@ function fgame() {
   br();
   anitext("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n".repeat(30),0.001,"c",1);
   char = "wolvesForest"
+  cpt = "1st Adventure"
   set()
   anitext("눈을 떠보니 하늘이 보입니다.", 0.1, "c", 1);
   br();
