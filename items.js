@@ -1872,7 +1872,7 @@ const items = {
     craft: false,
     reinforce: false,
     char: "null",
-    itemName: "가죽 투구",
+    itemName: "가죽 모자",
     iteminfo: "가볍고 질긴 투구.",
     itemDesc: "착용시 방어력 + 2, 데미지 + 3",
     price: 50,

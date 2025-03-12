@@ -2469,7 +2469,7 @@ const vil = {
         type: "hunt",
         name: "칼날소리ㅤ평야",
         char: "forest",
-        monstersList: [monsters.bladebird, monsters.reddracal],
+        monstersList: [monsters.bladebird, monsters.golemTypeA],
         // 돌발 몬스터 출현 확률
         dolbal: 10,
         near: ["kivotos", "dracalNest"],
@@ -2478,7 +2478,7 @@ const vil = {
                 if (rand(100) <= 98) {
                     fight(monsters.bladebird, 1)
                 } else {
-                    fight(monsters.reddracal, 1)
+                    fight(monsters.golemTypeA, 1)
                 }
             } else {
                 anitext("주변을 둘러보았지만, 아무것도 없다.", 0.1, "c", 3);
@@ -2599,7 +2599,7 @@ const vil = {
         type: "hunt",
         name: "언더마운트ㅤ힐",
         char: "forest",
-        monstersList: [monsters.golemTypeB, monsters.boar],
+        monstersList: [monsters.wolf, monsters.boar],
         // 돌발 몬스터 출현 확률
         dolbal: 10,
         near: ["highMount", "norden", "daybreakJungle"],

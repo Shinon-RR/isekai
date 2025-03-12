@@ -55,7 +55,7 @@ function fight(mon, baesu) {
         br();
         if (rand(100) <= p1.cri) {
           Gdata.FMdata.caldmg *= 2;
-          anitext("크리티컬!", 0.1, "c", 0.5);
+          anitext("크리티컬!", 0.1, "c", 1);
         }
 
 
@@ -300,7 +300,7 @@ function fight(mon, baesu) {
               if (fchoice === "0") {
                 psk = 0;
               } else {
-                if (fchoice <= p1.inven.length) {
+                if (fchoice <= p1.inven.length && fchoice >= 1) {
                   fui(Gdata.monster.art);
                   p1.inven[fchoice - 1].active();
                   psk = 0;
@@ -545,7 +545,7 @@ const monsters = {
         anitext("늑대의 깨물기!", 0.1, "c", 1);
         fui("w.q");
         anitext('"아그작"', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       } else if (crd < 90) {
         // } else if (false) {
@@ -554,7 +554,7 @@ const monsters = {
         anitext("늑대의 할퀴기!", 0.1, "c", 0.5);
         fui("w.w");
         anitext('"크아앙"', 0.1, "w", 2);
-        Gdata.FMdata.mcal = (this.dmg - p1.zdef) * 2;
+        Gdata.FMdata.mcal = (Gdata.FMdata.fmdmg - p1.zdef) * 2;
         mzcaca(Gdata.FMdata.mcal);
       } else if (crd < 100) {
         //몬스터 2스킬
@@ -603,7 +603,7 @@ const monsters = {
         anitext("늑대의 깨물기!", 0.1, "c", 1);
         fui("w.q");
         anitext('"아그작"', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       } else if (crd < 90) {
         // } else if (false) {
@@ -612,7 +612,7 @@ const monsters = {
         anitext("늑대의 할퀴기!", 0.1, "c", 0.5);
         fui("w.w");
         anitext('"크아앙"', 0.1, "w", 2);
-        Gdata.FMdata.mcal = (this.dmg - p1.zdef) * 2;
+        Gdata.FMdata.mcal = (Gdata.FMdata.fmdmg - p1.zdef) * 2;
         mzcaca(Gdata.FMdata.mcal);
       } else if (crd < 100) {
         //몬스터 2스킬
@@ -662,7 +662,7 @@ const monsters = {
         anitext("황금늑대의 깨물기!", 0.1, "c", 1);
         fui("w.q");
         anitext('"아그작"', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       } else if (crd < 90) {
         //몬스터 1스킬
@@ -670,7 +670,7 @@ const monsters = {
         anitext("황금늑대의 할퀴기!", 0.1, "c", 0.5);
         fui("w.w");
         anitext('"크아앙"', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg * 2 - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg * 2 - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       } else if (crd < 100) {
         //몬스터 2스킬
@@ -711,7 +711,7 @@ const monsters = {
         anitext("고블린이 뛰어온다!", 0.1, "c", 1);
         fui("goblin.w");
         anitext('"키이에에!"', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         if (mzcaca(Gdata.FMdata.mcal)) {
           if (rand(100) <= 30) {
             givbuff(buffs.bleeding, 3)
@@ -726,7 +726,7 @@ const monsters = {
         anitext("고블린의 검 투척!", 0.1, "c", 1);
         fui("goblin.r");
         anitext('"..."', 0.1, "w", 2);
-        Gdata.FMdata.mcal = (this.dmg * 1.5) - p1.zdef;
+        Gdata.FMdata.mcal = (Gdata.FMdata.fmdmg * 1.5) - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       }
     },
@@ -761,7 +761,7 @@ const monsters = {
         anitext("라이쿠가 돌진한다!", 0.1, "c", 1);
         fui("forest_Raiku.q");
         anitext('"크으으으아!"', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         mzcaca(Gdata.FMdata.mcal)
 
       } else {
@@ -770,7 +770,7 @@ const monsters = {
         anitext("가시가 날라온다!", 0.1, "c", 1);
         fui("forest_Raiku.w");
         anitext('"..."', 0.1, "w", 2);
-        Gdata.FMdata.mcal = (this.dmg * 1.5) - p1.zdef;
+        Gdata.FMdata.mcal = (Gdata.FMdata.fmdmg * 1.5) - p1.zdef;
         if (mzcaca(Gdata.FMdata.mcal)) {
           if (rand(100) <= 30) {
             givbuff(buffs.mpoison, 3)
@@ -816,7 +816,7 @@ const monsters = {
         anitext("해품달이 걸어온다!", 0.1, "c", 1);
         fui("sunmoon.q");
         anitext('"하아악!"', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         if (mzcaca(Gdata.FMdata.mcal)) {
           if (rand(100) <= 80) {
             givbuff(buffs.bleeding, 4)
@@ -871,7 +871,7 @@ const monsters = {
         anitext("해품달이 걸어온다!", 0.1, "c", 1);
         fui("sunmoon.q");
         anitext('"하아악!"', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         if (mzcaca(Gdata.FMdata.mcal)) {
           if (rand(100) <= 80) {
             givbuff(buffs.mpoison, 4)
@@ -923,7 +923,7 @@ const monsters = {
         anitext("흡혈박쥐의 발톱 할퀴기!", 0.1, "c", 1);
         fui("w.w");
         anitext('"찍찍!"', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       } else if (crd < 80) {
         //몬스터 1스킬
@@ -931,7 +931,7 @@ const monsters = {
         anitext("흡혈박쥐의 흡혈!", 0.1, "c", 0.5);
         fui("w.q");
         anitext('"찍찍!"', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         chh = 1;
         mzcaca(Gdata.FMdata.mcal);
       } else if (crd < 100) {
@@ -975,7 +975,7 @@ const monsters = {
         //몬스터 기본공격
         fui("pm5");
         anitext("염소가 지긋이 쳐다봅니다.", 0.1, "c", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       } else if (crd < 90) {
         //몬스터 1스킬
@@ -1018,7 +1018,7 @@ const monsters = {
       anitext("대토의 공격!", 0.1, "c", 0.5);
       fui(Gdata.monster.art);
       anitext('"..!"', 0.1, "w", 0.5);
-      Gdata.FMdata.mcal = this.dmg - p1.zdef
+      Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef
       mzcaca(Gdata.FMdata.mcal);
     },
   },
@@ -1085,7 +1085,7 @@ const monsters = {
         anitext("레드 드라칼의 브래스!", 0.1, "c", 1);
         fui("reddracal.brass");
         anitext('(화르륵)', 0.1, "r", 2);
-        Gdata.FMdata.mcal = this.dmg * 1.5 - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg * 1.5 - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       } else if (crd < 90) {
         // } else if (false) {
@@ -1094,7 +1094,7 @@ const monsters = {
         anitext("레드 드라칼의 할퀴기!", 0.1, "c", 0.5);
         fui("w.w");
         anitext('"크아앙"', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       } else {
         //몬스터 2스킬
@@ -1137,7 +1137,7 @@ const monsters = {
         anitext("블루 드라칼의 브래스!", 0.1, "c", 1);
         fui("bluedracal.brass");
         anitext('(화르륵)', 0.1, "r", 2);
-        Gdata.FMdata.mcal = this.dmg * 1.5 - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg * 1.5 - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       } else if (crd < 80) {
         // } else if (false) {
@@ -1146,7 +1146,7 @@ const monsters = {
         anitext("블루 드라칼의 할퀴기!", 0.1, "c", 0.5);
         fui("w.w");
         anitext('"크아앙"', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       } else {
         //몬스터 2스킬
@@ -1189,7 +1189,7 @@ const monsters = {
         anitext("마젠타 드라칼의 브래스!", 0.1, "c", 1);
         fui("magentadracal.brass");
         anitext('(화르륵)', 0.1, "r", 2);
-        Gdata.FMdata.mcal = this.dmg * 1.5 - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg * 1.5 - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       } else if (crd < 80) {
         // } else if (false) {
@@ -1198,7 +1198,7 @@ const monsters = {
         anitext("마젠타 드라칼의 할퀴기!", 0.1, "c", 0.5);
         fui("w.w");
         anitext('"크아앙"', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       } else {
         //몬스터 2스킬
@@ -1240,7 +1240,7 @@ const monsters = {
       anitext("사과가 날라온다!", 0.1, "c", 1);
       fui("platk");
       anitext('"낄낄낄!"', 0.1, "w", 2);
-      Gdata.FMdata.mcal = this.dmg - p1.zdef;
+      Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
       if (mzcaca(Gdata.FMdata.mcal)) {
         if (rand(100) <= 80) {
           givbuff(buffs.mpoison, 4)
@@ -1280,7 +1280,7 @@ const monsters = {
         anitext("골렘이 눈 앞에서 사라졌다!", 0.1, "c", 1);
         fui("golem-a.dash");
         anitext('"..."', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       } else if (crd < 100) {
         fui(Gdata.monster.art);
@@ -1288,7 +1288,7 @@ const monsters = {
         fui("golem-a.atk");
         anitext('"..."', 0.1, "w", 2);
         br();
-        Gdata.FMdata.mcal = this.dmg
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg
         if (mzcaca(Gdata.FMdata.mcal)) {
           givbuff(buffs.bleeding2, 5)
           br()
@@ -1332,7 +1332,7 @@ const monsters = {
           anitext("골렘이 뼈를 뽑아 던진다!", 0.1, "c", 1);
           fui("golem-b.atk");
           anitext('"..."', 0.1, "w", 2);
-          Gdata.FMdata.mcal = this.dmg - p1.zdef;
+          Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
           mzcaca(Gdata.FMdata.mcal);
         } else if (crd < 100) {
           fui(Gdata.monster.art);
@@ -1340,7 +1340,7 @@ const monsters = {
           fui("golem-b.dash");
           anitext('"크으으아!!"', 0.1, "w", 2);
           br();
-          Gdata.FMdata.mcal = this.dmg
+          Gdata.FMdata.mcal = Gdata.FMdata.fmdmg
           if (mzcaca(Gdata.FMdata.mcal)) {
             givbuff(buffs.slow, 5)
             br()
@@ -1383,7 +1383,7 @@ const monsters = {
         anitext("골렘이 위협적인 공격을 가한다!", 0.1, "c", 1);
         fui("golem-c.atk");
         anitext('"..."', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       } else if (crd < 100) {
         fui(Gdata.monster.art);
@@ -1427,7 +1427,7 @@ const monsters = {
       anitext("쉘 스파이더가 공격한다!", 0.1, "c", 1);
       fui("cmon.at");
       anitext('"키악!"', 0.1, "w", 2);
-      Gdata.FMdata.mcal = this.dmg - p1.zdef;
+      Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
       if (mzcaca(Gdata.FMdata.mcal)) {
         if (rand(100) <= 80) {
           givbuff(buffs.mpoison, 4)
@@ -1467,14 +1467,14 @@ const monsters = {
         anitext("칼날수리가 날아온다!", 0.1, "c", 1);
         fui("bladebird.dash");
         anitext('"키아아아!!"', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg * 1.5 - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg * 1.5 - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       } else if (crd < 80) {
         fui(Gdata.monster.art);
         anitext("칼날수리의 공격!", 0.1, "c", 0.5);
         fui("bladebird.atk");
         anitext('(칼날 소리가 들린다..)', 0.1, "c", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       } else if (crd <= 100) {
         //몬스터 2스킬
@@ -1523,7 +1523,7 @@ const monsters = {
         anitext('"필멸자여, 덤벼라!"', 0.1, "r", 1);
         fui("vdem.atk");
         anitext('"크아아!"', 0.1, "r", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       } else if (crd < 100) {
         //몬스터 2스킬
@@ -1531,7 +1531,7 @@ const monsters = {
         anitext('"으아아아아아아!"', 0.03, "r", 0.5);
         fui("vdem.sk");
         anitext('"대학살이다!"', 0.15, "r", 2);
-        Gdata.FMdata.mcal = (this.dmg * 1.2) - p1.zdef;
+        Gdata.FMdata.mcal = (Gdata.FMdata.fmdmg * 1.2) - p1.zdef;
         if (mzcaca(Gdata.FMdata.mcal)) {
           givbuff(buffs.slow, rand(2))
         }
@@ -1563,7 +1563,7 @@ const monsters = {
       anitext("헬파이어 크리쳐가 무섭게 달려온다!", 0.1, "c", 1);
       fui("d.q");
       anitext('"크아앙!"', 0.1, "r", 2);
-      Gdata.FMdata.mcal = this.dmg - p1.zdef;
+      Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
       if (mzcaca(Gdata.FMdata.mcal)) {
         givbuff(buffs.bleeding2, 2)
       }
@@ -1596,7 +1596,7 @@ const monsters = {
       anitext("스켈레톤이 공격을 가한다!", 0.1, "c", 1);
       fui("sk.at");
       anitext('..!', 0.1, "w", 2);
-      Gdata.FMdata.mcal = this.dmg - p1.zdef;
+      Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
       mzcaca(Gdata.FMdata.mcal);
 
     },
@@ -1629,7 +1629,7 @@ const monsters = {
         fui(Gdata.monster.art);
         anitext("리자드맨이 검을 휘두른다!", 0.1, "c", 1);
         fui("rzdm.at");
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         anitext('"크오!"', 0.1, "w", 2);
         mzcaca(Gdata.FMdata.mcal);
       } else {
@@ -1637,7 +1637,7 @@ const monsters = {
         anitext("방심한 틈을 타 리자드맨이 꼬리를 휘두른다!", 0.1, "c", 1);
         fui("rzdm.tail");
         anitext('..!', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg - (p1.zdef * 0.5);
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - (p1.zdef * 0.5);
         mzcaca(Gdata.FMdata.mcal);
       }
     },
@@ -1682,7 +1682,7 @@ const monsters = {
         }
         fui("platk");
         anitext('쿠오오!', 0.1, "w", 2);
-        Gdata.FMdata.mcal = this.dmg - p1.zdef;
+        Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
         mzcaca(Gdata.FMdata.mcal);
       }
     },
@@ -1719,7 +1719,7 @@ const monsters = {
       anitext("피그미가 뛰어온다!", 0.1, "c", 1);
       fui("platk");
       anitext('(덥석)', 0.1, "w", 2);
-      Gdata.FMdata.mcal = this.dmg - p1.zdef;
+      Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
       mzcaca(Gdata.FMdata.mcal);
     },
   },
@@ -1750,7 +1750,7 @@ const monsters = {
       anitext("베헤모스가 무섭게 달려온다!", 0.1, "c", 1);
       fui("platk");
       anitext('"꾸우오"', 0.1, "w", 2);
-      Gdata.FMdata.mcal = this.dmg - p1.zdef;
+      Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
       mzcaca(Gdata.FMdata.mcal);
     },
   },
@@ -1784,7 +1784,7 @@ const monsters = {
       anitext("튜터는 뒤를 돌아 자세를 잡는다!", 0.1, "c", 2);
       fui("zep.kh.ddo");
       anitext('"이것도 피해보세요!"', 0.1, "w", 2);
-      Gdata.FMdata.mcal = this.dmg - p1.zdef;
+      Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
       if (mzcaca(Gdata.FMdata.mcal)) {
         if (rand(100) <= 80) {
           givbuff(buffs.zep_ddo, 3)
@@ -1826,7 +1826,7 @@ const monsters = {
       if (this.bs === 0 && this.hp <= (Gdata.FMdata.maxhp * 0.5)) {
         this.bs = 1
         this.art = "zep.yh.bs"
-        this.dmg *= 1.5
+        Gdata.FMdata.fmdmg *= 1.5
         fui(Gdata.monster.art);
         anitext('"비상! 비상!"', 0.1, "w", 2);
       } else {
@@ -1889,7 +1889,7 @@ const monsters = {
             anitext('"삐빅."', 0.1, "w", 1);
             br()
             anitext('"정답은 [ ' + answer + ' ]입니다."', 0.1, "w", 2);
-            Gdata.FMdata.mcal = this.dmg;
+            Gdata.FMdata.mcal = Gdata.FMdata.fmdmg;
             mzcaca(Gdata.FMdata.mcal);
           }
         } else {
@@ -1933,7 +1933,7 @@ const monsters = {
       if (this.bs === 0 && this.hp <= (Gdata.FMdata.maxhp * 0.5)) {
         this.bs = 1
         this.art = "zep.js.bs"
-        this.dmg *= 1.5
+        Gdata.FMdata.fmdmg *= 1.5
         fui(Gdata.monster.art);
         anitext('"더 어렵게 해볼까요?"', 0.1, "w", 2);
       } else {
@@ -2044,7 +2044,7 @@ const monsters = {
             anitext('"이런.."', 0.1, "w", 1);
             br()
             anitext('"정답은 [ ' + answer + ' ]입니다."', 0.1, "w", 2);
-            Gdata.FMdata.mcal = this.dmg;
+            Gdata.FMdata.mcal = Gdata.FMdata.fmdmg;
             mzcaca(Gdata.FMdata.mcal);
           }
         } else {
@@ -2092,7 +2092,7 @@ const monsters = {
       anitext('"안녕하세요, 여러분! 좋은 아침입니다 😊"', 0.1, "w", 2);
       br()
       anitext('"오늘도 화이팅! 우리 모두 힘내봅시다! 💪⭐"', 0.1, "w", 1);
-      Gdata.FMdata.mcal = this.dmg - p1.zdef;
+      Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
       if (mzcaca(Gdata.FMdata.mcal)) {
         anitext("정신적 데미지를 입었다.", 0.1, "c", 1);
         if (rand(100) <= 70) {

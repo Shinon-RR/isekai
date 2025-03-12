@@ -959,7 +959,7 @@ const npc = {
             name: "섀이드",
             char: "rbt",
             havQ: false,
-            Qlist: [quest.qt1],
+            Qlist: [],
             hello() {
                 anitext('"..."', 0.1, "y", 2);
             },
@@ -1854,7 +1854,7 @@ const npc = {
                 br()
                 anitext('"불편하진 않으셨나요?"', 0.1, "y", 2);
             },
-            niceye() {
+            nicebye() {
                 anitext('"다음에 또 이용해주세요!"', 0.1, "y", 2);
             },
             goodBye() {

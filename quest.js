@@ -755,7 +755,7 @@ const quest = {
         // 반복 가능 여부
         repeatable: false,
         name: "메인 - 장비",
-        info: '"포테인 상점가에서 스크롤을 판매한다고 한다.\n포테인에 상점으로 가보자.',
+        info: '"키보토스 상점가에서 장비을 판매한다고 한다.\n키보토스에 상점으로 가보자.',
         reward: "20골드, 겸험치 30",
         killtarget: [],
         needKill: [0],
