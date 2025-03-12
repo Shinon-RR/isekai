@@ -848,7 +848,7 @@ let ln;
 let n;
 
 //메인
-Gdata.nextVil = vil.wayden
+Gdata.nextVil = vil.proto
 function handleUserInput() {
   let bachoice = ["새로운 게임 시작", "이어서 하기(미완)", "테스팅 메뉴"];
   let choice = readlineSync.keyInSelect(bachoice, " > ", { cancel: "종료" }) + 1;
@@ -1105,7 +1105,7 @@ function handleUserInput() {
             Gdata.ininv = false
             Gdata.finv = false
             Gdata.invloci = 0
-            
+
             igame()
           } else {
             console.log(chalk.yellow("비어있어요!"));
@@ -1507,11 +1507,79 @@ function fgame() {
         cl();
     }
   }
-  if (skip === 0) {
+  let color
+  let name
+  let namecolor
+  let char
+  let cpt
+  function set() {
+    let line
+    if (color === "gb") {
+      line = chalk.greenBright("─".repeat(60));
+    } else if (color === "g") {
+      line = chalk.green("─".repeat(60));
+    } else if (color === "bb") {
+      line = chalk.blueBright("─".repeat(60));
+    } else if (color === "b") {
+      line = chalk.blue("─".repeat(60));
+    } else if (color === "rb") {
+      line = chalk.redBright("─".repeat(60));
+    } else if (color === "r") {
+      line = chalk.red("─".repeat(60));
+    } else if (color === "yb") {
+      line = chalk.yellowBright("─".repeat(60));
+    } else if (color === "y") {
+      line = chalk.yellow("─".repeat(60));
+    } else if (color === "mb") {
+      line = chalk.magentaBright("─".repeat(60));
+    } else if (color === "m") {
+      line = chalk.magenta("─".repeat(60));
+    } else {
+      line = chalk.white("─".repeat(60));
+    }
+    let ne
+    if (namecolor === "gb") {
+      ne = chalk.greenBright(name);
+    } else if (namecolor === "g") {
+      ne = chalk.green(name);
+    } else if (namecolor === "bb") {
+      ne = chalk.blueBright(name);
+    } else if (namecolor === "b") {
+      ne = chalk.blue(name);
+    } else if (namecolor === "rb") {
+      ne = chalk.redBright(name);
+    } else if (namecolor === "r") {
+      ne = chalk.red(name);
+    } else if (namecolor === "yb") {
+      ne = chalk.yellowBright(name);
+    } else if (namecolor === "y") {
+      ne = chalk.yellow(name);
+    } else if (namecolor === "mb") {
+      ne = chalk.magentaBright(name);
+    } else if (namecolor === "m") {
+      ne = chalk.magenta(name);
+    } else {
+      ne = chalk.white(name);
+    }
     cl();
-    anitext("Chapter : Prologue", 0.2, "g", 1);
+    console.log(line);
+    process.stdout.write(chalk.green("          Chapter : " + cpt));
     br();
+    console.log(line);
+    process.stdout.write("                       ");
+    process.stdout.write(ne);
     br();
+    console.log(line);
+    aniprt(char);
+    console.log(line);
+  }
+  if (skip === 0) {
+    cpt = "Prologue"
+    color = "gb"
+    name = `현실`
+    namecolor = "cb"
+    char = "bgs"
+    set()
     //텍스트 그림 넣을레?
     anitext("어느 화창한 오후", 0.1, "c", 1);
     br();
@@ -1523,7 +1591,7 @@ function fgame() {
     anitext("오늘 하루도 잠을 안 자고 ", 0.1, "c", 0.3);
     br();
     anitext("게임만 하는군요", 0.2, "c", 1);
-    cl();
+    set()
     anitext('"이벤트 다 달렸다.."', 0.2, "w", 0.1);
     br();
     anitext("(꼬르륵)", 0.1, "w", 2);
@@ -1533,26 +1601,21 @@ function fgame() {
     br();
     anitext("아무리 인간 말종이지만 ", 0.1, "c", 0.3);
     anitext("꼴에 배꼽시계는 정상작동 하는군요", 0.1, "c", 1.5);
-    br();
+    set()
     anitext('"아-', 0.3, "w", 0.5);
     anitext("맞다", 0.3, "w", 0.5);
     anitext(' 편의점에서 빵 콜라보 했지.."', 0.1, "w", 1);
     br();
     anitext("당신은 빵을 사기 위해 ", 0.05, "c", 0.5);
     anitext("편의점으로 향합니다.", 0.1, "c", 1);
-    cl();
+    set()
     anitext("(2시간 뒤)", 0.1, "b", 1);
     br();
-    anitext(
-      "10군데가 넘는 편의점을 다니고 11번째 편의점에 도착합니다.",
-      0.1,
-      "c",
-      1
-    );
+    anitext("10군데가 넘는 편의점을 다니고 11번째 편의점에 도착합니다.",0.1,"c",1);
     br();
     anitext("이런, ", 0.1, "c", 0.5);
     anitext("이번 편의점에도 빵이 품절이군요", 0.1, "c", 0.5);
-    br();
+    set()
     anitext('"...', 0.4, "w", 1);
     anitext("하아..", 0.1, "w", 1);
     anitext('벌써 몇 번째 편의점이야"', 0.1, "w", 1);
@@ -1560,7 +1623,8 @@ function fgame() {
     anitext('"하나쯤은 있을법 한데 X발"', 0.1, "w", 1);
     br();
     anitext("다른 편의점으로 가야겠네요.", 0.1, "c", 2);
-    cl();
+    char = "null"
+    set()
     anitext("아쉬운 마음을 뒤로 한 채 ", 0.1, "c", 0.5);
     anitext("다른 편의점으로 가던 당신은", 0.1, "c", 1.5);
     br();
@@ -1570,37 +1634,38 @@ function fgame() {
     anitext("(철푸덕)", 0.1, "w", 0.3);
     br();
     anitext("바닥에 곤두박질칩니다", 0.1, "c", 2);
-    br();
+    set()
     anitext('"...아', 0.4, "w", 0.5);
     anitext('...마지막으로 잔게 언제였더라..."', 0.2, "w", 0.3);
     br();
     anitext("(빠아앙~!)", 0.1, "c", 1);
 
-    cl();
-    aniprt("kkk")
+    char = "kkk"
+    set()
+    char = "null"
     sleep(3);
-    cl();
     anitext("...", 0.5, "c", 1);
-    anitext("트럭에 치여 사망합니다.", 0.1, "c", 1);
-    cl();
+    set()
+    anitext("트럭에 치여 사망합니다.", 0.1, "c", 3);
+    set()
     anitext("눈 앞이 캄캄합니다.", 0.1, "c", 3);
-    cl();
+    name = `???`
+    set()
     anitext('"..님..."', 0.2, "w", 1);
     br();
     anitext("어둠속에서 누군가의 목소리가 들려옵니다.", 0.1, "c", 3);
-    cl();
+    set()
     anitext('"용사...', 0.2, "w", 0.5);
     anitext(' 어나세요..."', 0.2, "w", 1);
-    cl();
-    aniprt("mio");
+    char = "mio"
+    set()
     anitext('"깨어나세요', 0.2, "w", 0.3);
     anitext(' 용사님"', 0.2, "w", 1);
     br();
     anitext("눈을 떠보니", 0.1, "c", 0.3);
     anitext(" 아름다운 미모의 여성이", 0.1, "c", 0.3);
     anitext(" 당신에게 말을 건넵니다.", 0.1, "c", 0.3);
-    cl();
-    aniprt("mio");
+    set()
     anitext('"아, 정신이 드셨나요?"', 0.1, "w", 1);
     br();
     anitext('"여긴.. ', 0.3, "w", 0.5);
@@ -1609,23 +1674,18 @@ function fgame() {
     anitext('"이곳은 이계입니다."', 0.1, "w", 1);
     br();
     anitext('"이계..?"', 0.3, "w", 2);
-    cl();
-    aniprt("mio");
-    anitext(
-      "오타쿠처럼 게임만 하다 죽어서 그런지 헛것이 보이는 느낌이네요",
-      0.1,
-      "c",
-      0.5
-    );
+    name = `이계`
+    namecolor = "yb"
+    set()
+    anitext("오타쿠처럼 게임만 하다 죽어서 그런지 헛것이 보이는 느낌이네요",0.1,"c",0.5);
     anitext(" 하!하!하!", 0.5, "c", 1);
-    cl();
-    aniprt("mio");
+    set()
     anitext('"정신이 온전하신 상태가 아니군요.."', 0.1, "w", 2);
     br();
     anitext('"저의 이름은 아인"', 0.1, "w", 1);
     br();
     anitext('"용사님의 이름은 무엇인가요?"', 0.1, "w", 1);
-    cl();
+    set()
     anitext('"나의 이름은..?', 0.4, "w", 0.5);
     //입력문
     for (var i = 0; i === 0;) {
@@ -1637,8 +1697,7 @@ function fgame() {
       }
     }
     anitext('입니다."', 0.1, "w", 1);
-    cl();
-    aniprt("mio");
+    set()
     anitext('"' + p1.name + '용사님..."', 0.1, "w", 1);
     br();
     anitext('"이계 세피로트는 지금 위기에 처해있습니다."', 0.1, "w", 1);
@@ -1646,8 +1705,7 @@ function fgame() {
     anitext('"' + p1.name + '용사님의 도움이 필요합니다."', 0.1, "w", 1);
     br();
     anitext('"부디.. 세피로트를 구원해주세요"', 0.1, "w", 1);
-    cl();
-    aniprt("mio");
+    set()
     anitext("뭔지 모를 소리만 늘어놓는 이상한 사람이군요", 0.1, "c", 1);
     br();
     anitext('"네..?!"', 0.1, "w", 1);
@@ -1659,18 +1717,14 @@ function fgame() {
   cl();
   anitext("당신은 빛에 휩싸이기 시작합니다.", 0.1, "c", 2);
   br();
-  anitext(
-    "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n".repeat(20),
-    0.001,
-    "c",
-    2
-  );
-  cl();
+  anitext("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n".repeat(30),0.001,"c",1);
+  char = "wolvesForest"
+  set()
   anitext("눈을 떠보니 하늘이 보입니다.", 0.1, "c", 1);
   br();
   anitext(p1.name + "용사님 누워계시군요..?", 0.2, "c", 1);
   anitext("(크흠)", 0.1, "c", 1);
-  br();
+  set()
   anitext("정말 아름다운 날입니다.", 0.1, "c", 1);
   br();
   anitext("새들은 지저귀고, 꽃들은 피어나고...", 0.1, "c", 2);
@@ -1680,15 +1734,15 @@ function fgame() {
   anitext('"이게 뭐야;;"', 0.1, "w", 1);
   br();
   anitext("어찌된 일인지 모르겠지만 우선 일어나기로 합니다.", 0.1, "c", 2);
-  cl();
+  char = "wolf"
+  set()
   anitext("!!!", 0.1, "c", 1);
   br();
-  aniprt("wolf");
   anitext("늑대가 나타났습니다.", 0.1, "c", 0.4);
   br();
   anitext('"갑자기?!"', 0.1, "w", 2);
   br();
-  cl();
+  set()
   anitext("그러자 눈 앞에 무기가 생겨나기 시작합니다.", 0.1, "c", 1);
   br();
   anitext("위기에 처한 당신은 우선 무기를 고르기로 합니다.", 0.1, "c", 1);
@@ -1775,26 +1829,22 @@ function fgame() {
   checkstat();
   chokihwa();
   fight(monsters.wolf, 1);
-  mcl("null");
+  
+  set()
   anitext('"도대체 뭐였던거야..."', 0.1, "w", 1);
   br();
   anitext("늑대입니다.", 0.1, "c", 1);
   br();
   anitext('"아직도 뭐가 뭔지 모르겠어.."', 0.2, "w", 2);
   br();
-  mcl("wolvesForest");
+  set()
   anitext(p1.name + "용사는 주변을 둘러보기로 합니다.", 0.1, "c", 2);
   br();
   anitext("마을로 갈 수 있는 길이 있는 모양입니다.", 0.1, "c", 1);
-  mcl("wolvesForest");
-  anitext('"이쪽으로 가면 마을이 나오려나.."', 0.1, "w", 1);
   br();
-  anitext(
-    "그렇게 " + p1.name + "용사는 길을 따라 걷기 시작합니다.",
-    0.1,
-    "c",
-    1
-  );
+  anitext('"이쪽으로 가면 마을이 나오려나.."', 0.1, "w", 1);
+  set()
+  anitext("그렇게 " + p1.name + "용사는 길을 따라 걷기 시작합니다.",0.1,"c",1);
   igame();
 }
 function igame() {

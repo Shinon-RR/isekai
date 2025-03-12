@@ -1,7 +1,7 @@
 const { default: chalk } = require("chalk");
 const { items } = require("./items");
 // const { items } = require("./items2");
-const { sleep, aniprt, br, cl, anitext, anigiv, rand, checkQ, leadingZeros, SetUi } = require("./func");
+const { sleep, aniprt, br, cl, anitext, anigiv, rand, checkQ, leadingZeros, SetUi, wrtxt } = require("./func");
 const { p1, Gdata } = require("./users-data");
 const readlineSync = require("readline-sync");
 const { quest } = require("./quest");
@@ -13,9 +13,9 @@ const npc = {
             name: "포터",
             char: "potter",
             shopname: "포터의 잡화상점",
-            havQ: false,
-            Qlist: [],
-            list: [items.i0, items.i1, items.i3, items.t0, items.b2],
+            havQ: true,
+            Qlist: [quest.main_2],
+            list: [items.i0, items.i1, items.i3, items.t0, items.b2, items.b3],
             a: function () { },
             hello() {
                 anitext('"아.. 안녕하세요!"', 0.1, "y", 2);
@@ -194,7 +194,7 @@ const npc = {
             char: "spike",
             shopname: "스파이크의 스크롤상점",
             havQ: true,
-            Qlist: [quest.spike_1],
+            Qlist: [quest.spike_1, quest.main_3],
             list: [],
             // a: function () {
             //     if (p1.class === "warrior") {
@@ -462,6 +462,140 @@ const npc = {
                 }
             },
         },
+        dmr: {
+            name: "알렌",
+            char: "dmr",
+            shopname: "알렌의 장비상점",
+            havQ: false,
+            Qlist: [],
+            // list: [items.h4, items.a4, items.s4, items.g4, items.p4, items.wa4],
+            list: [],
+            a: function () {
+                this.list = []
+                if (p1.class === "archer") {
+                    this.list.push(items.h7, items.a7, items.s7, items.g7, items.p7, items.wa7)
+                } else if (p1.class === "warrior") {
+                    this.list.push(items.h8, items.a8, items.s8, items.g8, items.p8, items.ww8)
+                } else if (p1.class === "defender") {
+                    this.list.push(items.h9, items.a9, items.s9, items.g9, items.p9, items.wd9)
+                } else if (p1.class === "rogue") {
+                    this.list.push(items.h10, items.a10, items.s10, items.g10, items.p10, items.wr10)
+                } else if (p1.class === "magiccaster") {
+                    this.list.push(items.h11, items.a11, items.s11, items.g11, items.p11, items.wm11)
+                }
+            },
+            hello() {
+                anitext('"어서와!"', 0.1, "y", 2);
+            },
+            bye() {
+                anitext('"잘가!"', 0.1, "y", 2);
+            },
+            sell_talk() {
+                anitext('"판매는 환영이야~"', 0.1, "y", 2);
+            },
+            sell_suc() {
+                anitext('"오호"', 0.1, "y", 2);
+            },
+            buy_talk() {
+                anitext('"필요한 장비를 골라봐!"', 0.1, "y", 2);
+            },
+            buy_suc() {
+                anitext('"안목이 뛰어나네"', 0.1, "y", 2);
+            },
+            istalk() {
+                let trand = rand(100);
+                if (trand <= 25) {
+                    anitext('"난 오히려 마을이 조용해서 좋아!"', 0.1, "y", 2);
+                    br();
+                    anitext('"장비 제작에 집중을 할 수 있거든!"', 0.1, "y", 2);
+                } else if (trand <= 50) {
+                    anitext('"에덴에서 파는 장비 중에선 내 장비가 하이엔드야!"', 0.1, "y", 1);
+                    br();
+                    anitext('"장비의 품질이 ', 0.1, "y", 1);
+                    anitext('아주', 0.3, "y", 0.3);
+                    anitext(' 뛰어나거든"', 0.1, "y", 1);
+                    br();
+                    anitext('"내가 좀 대단하잖아?"', 0.1, "y", 2);
+                } else if (trand <= 75) {
+                    anitext('"나에겐 델리가 최고의 장소긴 하지"', 0.1, "y", 1);
+                    br();
+                    anitext('"재료 조달이 귀찮아지긴 하지만"', 0.1, "y", 1);
+                    br()
+                    anitext('"나만의 루트가 다 있지~"', 0.1, "y", 2);
+                } else if (trand <= 98) {
+                    anitext('"제작에 집중을 하다보면 잡 생각이 줄어"', 0.1, "y", 1);
+                    br();
+                    anitext('"너도 나처럼 「취미」를 가져봐"', 0.1, "y", 2);
+                } else {
+                    anitext('"가끔은 드라칼을 멸종시켜버리고 싶어."', 0.1, "y", 1);
+                    br();
+                    anitext('"하지만 드라칼이 있기에 델리가 조용해서 막상 멸종시키긴 아까워"', 0.1, "y", 2);
+                    br();
+                    anitext('"그럴 힘이 있기나 하냐고?"', 0.1, "y", 1);
+                    br();
+                    anitext('"내가 재료를 어떻게 수급한다고 생각하는거야?"', 0.1, "y", 2);
+                }
+            },
+        },
+        jms: {
+            name: "리벨",
+            char: "jms",
+            shopname: "리벨의 주문서 상점",
+            havQ: false,
+            Qlist: [],
+            // list: [items.h4, items.a4, items.s4, items.g4, items.p4, items.wa4],
+            list: [items.tp0, items.tp1, items.tp2],
+            a: function () {
+            },
+            hello() {
+                anitext('"어서오세요.."', 0.16, "y", 2);
+            },
+            bye() {
+                anitext('"안녕히 가세요.."', 0.16, "y", 2);
+            },
+            sell_talk() {
+                anitext('"물건 판매 말씀인가요"', 0.16, "y", 2);
+            },
+            sell_suc() {
+                anitext('"흐음.."', 0.16, "y", 2);
+            },
+            buy_talk() {
+                anitext('"필요하신 물건을 찾아보세요"', 0.16, "y", 2);
+            },
+            buy_suc() {
+                anitext('"이 친구도 좋죠."', 0.16, "y", 2);
+            },
+            istalk() {
+                let trand = rand(100);
+                if (trand <= 25) {
+                    anitext('"마법은 언제나 대가가 따르죠."', 0.16, "y", 2);
+                    br();
+                    anitext('"밤새 주문서를 연구하다 보니.."', 0.16, "y", 2);
+                } else if (trand <= 50) {
+                    anitext('"이렇게 마법의 힘으로 주문서를 팔고 있지만"', 0.16, "y", 1);
+                    br();
+                    anitext('"진정한 마법은 값으로 매길 수 없다고 생각해요."', 0.16, "y", 2);
+                } else if (trand <= 75) {
+                    anitext('"취미가 뭐냐구요?"', 0.16, "y", 1);
+                    br();
+                    anitext('"취미라고 부를만한 건 없지만.."', 0.16, "y", 1);
+                    br()
+                    anitext('"가끔 머리가 아프면 밤하늘의 별을 관찰해요"', 0.16, "y", 2);
+                } else if (trand <= 98) {
+                    anitext('"주문서를 만들기 위한 재료는 여럿 있지만"', 0.16, "y", 1);
+                    br();
+                    anitext('"가장 중요한 것은 의지와 마음이죠"', 0.16, "y", 2);
+                } else {
+                    anitext('"가끔은 드라칼을 멸종시켜버리고 싶어."', 0.16, "y", 1);
+                    br();
+                    anitext('"하지만 드라칼이 있기에 델리가 조용해서 막상 멸종시키긴 아까워"', 0.16, "y", 2);
+                    br();
+                    anitext('"그럴 힘이 있기나 하냐고?"', 0.16, "y", 1);
+                    br();
+                    anitext('"내가 재료를 어떻게 수급한다고 생각하는거야?"', 0.16, "y", 2);
+                }
+            },
+        },
     },
     villager: {
         rumia: {
@@ -629,7 +763,7 @@ const npc = {
             name: "세이아",
             havQ: true,
             char: "seia",
-            Qlist: [quest.q4],
+            Qlist: [quest.q4, quest.main_0],
             hello() {
                 anitext('"..?"', 0.2, "y", 2);
                 br()
@@ -802,7 +936,7 @@ const npc = {
                     br();
                     anitext('"..."', 0.1, "y", 3);
                     br();
-                    SetUi("yb","프리드리히","gb","friedrich")
+                    SetUi("yb", "프리드리히", "gb", "friedrich")
                     anitext('"감자도스..?', 0.1, "y", 1);
                     anitext('윌슨?"', 0.1, "y", 2);
                     br();
@@ -967,7 +1101,7 @@ const npc = {
                 } else if (trand <= 50) {
                     anitext('"저번에 주사위 게ㅇ..', 0.1, "y", 0.5);
                     anitext('아니아니"', 0.1, "y", 1);
-                    SetUi("yb","르네","gb","rene")
+                    SetUi("yb", "르네", "gb", "rene")
                     anitext('"점잖게 동네 친구들과 한 카드 게임을 이겨서"', 0.1, "y", 1);
                     br();
                     anitext('"주점의 모두에게 맥주를 쏜적이 있었지"', 0.1, "y", 1);
@@ -1038,6 +1172,8 @@ const npc = {
         watney: {
             name: "와트니",
             char: "watney",
+            havQ: false,
+            Qlist: [],
             hello() {
                 anitext('"안녕?"', 0.1, "y", 2);
                 br()
@@ -1169,60 +1305,144 @@ const npc = {
         zef: {
             name: "제프",
             char: "zef",
+            havQ: false,
+            Qlist: [],
             hello() {
-                anitext('"안녕"', 0.1, "y", 2);
+                anitext('"..안녕"', 0.1, "y", 2);
             },
             bye() {
-                anitext('"잘가"', 0.1, "y", 2);
+                anitext('"..잘가"', 0.1, "y", 2);
             },
             istalk() {
                 let trand = rand(100);
                 if (trand < 25) {
-                    anitext('"1-1"', 0.1, "y", 1);
+                    anitext('"..주변에는 몬스터가 많이 출몰해"', 0.1, "y", 1);
                     br();
-                    anitext('"1-2"', 0.1, "y", 2);
+                    anitext('"그러니 마을 밖에서는 항상 조심해.."', 0.1, "y", 2);
                 } else if (trand < 50) {
-                    anitext('"2-1"', 0.1, "y", 1);
+                    anitext('"..포션은 많을수록 좋아"', 0.1, "y", 1);
                     br();
-                    anitext('"2-2"', 0.1, "y", 2);
+                    anitext('"..목숨값보다 저렴하니 말이야"', 0.1, "y", 2);
                 } else if (trand < 75) {
-                    anitext('"3-1"', 0.1, "y", 1);
+                    anitext('"..원래는 벨리알까지 통행이 가능했는데"', 0.1, "y", 1);
                     br();
-                    anitext('"3-2"', 0.1, "y", 2);
+                    anitext('"안전상의 이유로 지금은 통행이 금지됐어"', 0.1, "y", 2);
                 } else if (trand < 98) {
-                    anitext('"4-1"', 0.1, "y", 1);
+                    anitext('"..항상 긴장의 끈을 놓지 마"', 0.1, "y", 1);
                     br();
-                    anitext('"4-2"', 0.1, "y", 2);
+                    anitext('"..언제 어디서나 말이야"', 0.1, "y", 2);
                 } else {
-                    anitext('"5-1"', 0.1, "y", 1);
+                    anitext('"오올 블루?"', 0.1, "y", 1);
                     br();
-                    anitext('"5-2"', 0.1, "y", 2);
+                    anitext('"..그게 무엇이지?"', 0.1, "y", 2);
                 }
             },
         },
         baba: {
-            name: "로리바바",
+            name: "요코",
             char: "baba",
+            havQ: true,
+            Qlist: [quest.main_7, quest.main_8, quest.main_9],
             hello() {
-                anitext('"안녕"', 0.1, "y", 2);
+                anitext('"만나서 반가운거시야!"', 0.1, "y", 2);
             },
             bye() {
-                anitext('"잘가"', 0.1, "y", 2);
+                anitext('"잘 가거라"', 0.1, "y", 2);
             },
             istalk() {
                 let trand = rand(100);
                 if (trand < 25) {
-                    anitext('"1-1"', 0.1, "y", 1);
+                    anitext('"흐음.. 그대"', 0.1, "y", 1);
                     br();
-                    anitext('"1-2"', 0.1, "y", 2);
+                    anitext('"고민이 가득한 표정이로고"', 0.1, "y", 2);
+                    br();
+                    anitext('"서두르지 말고 하나씩 해결하면 잘 풀릴게야"', 0.1, "y", 2);
                 } else if (trand < 50) {
-                    anitext('"2-1"', 0.1, "y", 1);
+                    anitext('"인생에서 가장 중요한게 무엇인지 아느냐?"', 0.1, "y", 1);
                     br();
-                    anitext('"2-2"', 0.1, "y", 2);
+                    anitext('"그것은 「신념」인게야"', 0.1, "y", 1);
+                    br();
+                    anitext('"그러니 항상 자신을 잃어버리지 말거라!"', 0.1, "y", 2);
                 } else if (trand < 75) {
-                    anitext('"3-1"', 0.1, "y", 1);
+                    anitext('"이몸이 귀엽다고 한거시냐?"', 0.1, "y", 1);
                     br();
-                    anitext('"3-2"', 0.1, "y", 2);
+                    anitext('"이래 보여도 요코는 200년 이상 살아온게야"', 0.1, "y", 2);
+                } else if (trand < 98) {
+                    anitext('"차는 코, 입 중에 무엇으로 먹는지 아느냐?"', 0.1, "y", 1);
+                    br();
+                    anitext('"정답은 둘 다 인게야!"', 0.1, "y", 1);
+                    br();
+                    anitext('"「맛」을 느끼며 「향」도 느껴야 하느니라"', 0.1, "y", 2);
+                } else {
+                    anitext('"불길한 향이 짙어지고 있는게야"', 0.1, "y", 1);
+                    br();
+                    anitext('"그대는 이미 그게 무엇인지 알고 있는 게로구나.."', 0.1, "y", 2);
+                }
+            },
+        },
+        efa: {
+            name: "피나",
+            char: "efa",
+            havQ: false,
+            Qlist: [],
+            hello() {
+                anitext('"만나서 반가워요"', 0.1, "y", 2);
+            },
+            bye() {
+                anitext('"다음에 또 만나요"', 0.1, "y", 2);
+            },
+            istalk() {
+                let trand = rand(100);
+                if (trand < 25) {
+                    anitext('"마법은 자연과 연결되어 있어요."', 0.1, "y", 1);
+                    br();
+                    anitext('"당신은 마법을 사용할 줄 아나요?"', 0.1, "y", 2);
+                } else if (trand < 50) {
+                    anitext('"자연의 소리를 들어보세요."', 0.1, "y", 1);
+                    br();
+                    anitext('"바람이 나무 사이를 지나고 있어요. 정말 아름답네요"', 0.1, "y", 2);
+                } else if (trand < 75) {
+                    anitext('"전투에서는 민첩함이 중요해요."', 0.1, "y", 1);
+                    br();
+                    anitext('"훈련을 게흘리 하지 마세요"', 0.1, "y", 2);
+                } else if (trand < 98) {
+                    anitext('"미래는 우리가 만드는 것이에요."', 0.1, "y", 1);
+                    br();
+                    anitext('"모두가 서로를 이해할 수 있는 그런 미래."', 0.1, "y", 2);
+                } else {
+                    anitext(wrtxt(rand(5)), 0.1, "y", 1);
+                    br();
+                    anitext(wrtxt(rand(10)), 0.1, "y", 2);
+                }
+            },
+        },
+        hite: {
+            name: "시안",
+            char: "hite",
+            havQ: true,
+            Qlist: [quest.main_10],
+            hello() {
+                anitext('".."', 0.1, "y", 2);
+            },
+            bye() {
+                anitext('".."', 0.1, "y", 2);
+            },
+            istalk() {
+                let trand = rand(100);
+                if (trand < 25) {
+                    anitext('"너도 벨리알에서 피난왔냐?"', 0.1, "y", 1);
+                    br();
+                    anitext('"벨리알로 향하고 있다고?"', 0.1, "y", 1);
+                    br();
+                    anitext('"재미 없거든?"', 0.1, "y", 2);
+                } else if (trand < 50) {
+                    anitext('"빈약한 장비로 가는 건"', 0.1, "y", 1);
+                    br();
+                    anitext('"자살 행위나 마찬가지야."', 0.1, "y", 2);
+                } else if (trand < 75) {
+                    anitext('"살고싶거든.."', 0.1, "y", 1);
+                    br();
+                    anitext('"이 마을을 떠나"', 0.1, "y", 2);
                 } else if (trand < 98) {
                     anitext('"4-1"', 0.1, "y", 1);
                     br();
@@ -1234,9 +1454,11 @@ const npc = {
                 }
             },
         },
-        efa: {
-            name: "엘프",
-            char: "efa",
+        bch: {
+            name: "멘마",
+            char: "bch",
+            havQ: false,
+            Qlist: [],
             hello() {
                 anitext('"안녕"', 0.1, "y", 2);
             },
@@ -1601,7 +1823,7 @@ const npc = {
                     anitext('"아.. 네?"', 0.1, "y", 1);
                     br();
                     anitext('"부르셨나요?"', 0.1, "y", 2);
-                    SetUi("yb",this.innName,"bb",this.char)
+                    SetUi("yb", this.innName, "bb", this.char)
                     anitext('"무슨 일 있으신가요?"', 0.1, "w", 1);
                     br();
                     anitext('"별 일 없답니다..!"', 0.1, "y", 2);
@@ -1935,9 +2157,9 @@ const npc = {
 };
 
 function shop(name) {
-    
+
     function scl() {
-        SetUi("gb",name.shopname,"bb",name.char)
+        SetUi("gb", name.shopname, "bb", name.char)
     }
     let shopchoice;
     scl();
@@ -2358,7 +2580,7 @@ function shop(name) {
 }
 function inn(name) {
     function scl() {
-        SetUi("yb",name.innName,"bb",name.char)
+        SetUi("yb", name.innName, "bb", name.char)
     }
     let innchoice;
     scl();
@@ -2481,6 +2703,19 @@ function inn(name) {
                         anitext("자고 일어나니 기운이 넘친다.", 0.1, "c", 3);
                         scl();
                         name.goodMorning()
+                        let today = new Date()
+                        var year = (leadingZeros(today.getFullYear(), 4))
+                        var month = (leadingZeros(today.getMonth() + 1, 2))
+                        var date = (leadingZeros(today.getDate(), 2))
+                        var hours = ('0' + today.getHours()).slice(-2);
+                        var minutes = ('0' + today.getMinutes()).slice(-2);
+                        Gdata.lastSave = year + "년 " + month + "월 " + date + "일 " + hours + '시 ' + minutes + '분'
+                        const gameDatas = {
+                            p1,
+                            Gdata
+                        }
+                        let save = JSON.stringify(gameDatas)
+                        fs.writeFileSync('./savefiles/save_auto.json', save)
                     }
                 }
                 while (pay === 1) {
@@ -2665,7 +2900,7 @@ function inn(name) {
 function npctalk(name) {
     Gdata.nowtalk = name.char
     function scl() {
-        SetUi("yb",name.name,"gb",name.char)
+        SetUi("yb", name.name, "gb", name.char)
     }
     checkQ()
     scl();

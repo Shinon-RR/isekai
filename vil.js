@@ -69,7 +69,7 @@ const vil = {
             while (loop) {
                 set();
                 let plist = ["책 열람"];
-                let blist = [books.test1,books.b0,books.b1];
+                let blist = [books.test1, books.b0, books.b1];
                 let bn = []
                 for (let i = 0; i < blist.length; i++) {
                     bn.push(blist[i].name)
@@ -92,9 +92,9 @@ const vil = {
                             br()
                             let pst = ["읽기"];
                             let pwc = readlineSync.keyInSelect(pst, " > ", { cancel: "뒤로" });
-                            if (pwc === 0) {                                
+                            if (pwc === 0) {
                                 anitext(`${target.name}을(를) 읽기로 하였다.`, 0.1, "c", 2);
-                            }else{
+                            } else {
                                 lop = false
                             }
                         }
@@ -135,7 +135,7 @@ const vil = {
                                     lop = false
                                     break;
                             }
-                            
+
                         }
                         break;
                     default:
@@ -237,9 +237,9 @@ const vil = {
         id: "norden",
         type: "vil",
         name: "노든",
-        char: "null",
-        slist: [],
-        npcs: [npc.villager.efa],
+        char: "norden",
+        slist: [npc.shopkeeper.jms],
+        npcs: [npc.villager.efa, npc.villager.bch],
         inn: [npc.inn.amelia],
         near: ["underMountHill"],
 
@@ -272,7 +272,7 @@ const vil = {
         specName: "길드",
         special() {
             Gdata.nowtalk = "guild"
-            let Qlt = [quest.guild_0, quest.guild_1, quest.guild_2, quest.guild_3]
+            let Qlt = [quest.guild_0, quest.guild_1, quest.guild_2, quest.guild_3, quest.main_4, quest.main_5]
             checkQ()
             SetUi("b", "길드", "gb", "guild");
             anitext('"어서오세요 모험가님!"', 0.1, "y", 2);
@@ -1049,7 +1049,7 @@ const vil = {
         name: "리튼",
         char: "leeten",
         slist: [npc.shopkeeper.wiz],
-        npcs: [npc.villager.baba,npc.villager.zef],
+        npcs: [npc.villager.baba, npc.villager.zef],
         inn: [npc.inn.luna],
         near: ["leetenCheckpoint", "dracalNest"],
 
@@ -1559,8 +1559,8 @@ const vil = {
         type: "vil",
         name: "델리",
         char: "delly",
-        slist: [],
-        npcs: [npc.villager.himiko,npc.villager.k],
+        slist: [npc.shopkeeper.dmr],
+        npcs: [npc.villager.himiko, npc.villager.k],
         inn: [npc.inn.maya],
         near: ["dellyValley"],
 
@@ -1885,6 +1885,8 @@ const vil = {
                                     jbl = false
                                     break;
                                 } else if (inchoice2 === 1) {
+                                    anitext("깡  깡  깡", 0.3, "c", 2);
+                                    br()
                                     for (let iz = 0; iz < ntem.length; iz++) {
                                         anigiv(ntem[iz], (ntemcount[iz] * -1), 0)
                                     }
@@ -2121,9 +2123,9 @@ const vil = {
         id: "mirabilis",
         type: "vil",
         name: "미라빌리스",
-        char: "null",
+        char: "mirabilis",
         slist: [],
-        npcs: [npc.villager.husu],
+        npcs: [npc.villager.hite],
         inn: [npc.inn.clara],
         near: ["daybreakJungle", "heartbeatGrounds"],
 
@@ -2147,7 +2149,7 @@ const vil = {
         id: "vellir",
         type: "vil",
         name: "벨리알",
-        char: "null",
+        char: "vellir",
         slist: [],
         npcs: [],
         inn: [],
@@ -2199,13 +2201,13 @@ const vil = {
         name: "웨스탈리스",
         char: "westallis",
         slist: [npc.shopkeeper.ellesion],
-        npcs: [npc.villager.biki,npc.villager.hare],
+        npcs: [npc.villager.biki, npc.villager.hare],
         inn: [npc.inn.ikz],
         near: ["broadField", "sunsetSeashore"],
 
-        specName: "플루토",
+        specName: "주점",
         special() {
-
+            anitext('아직 주점은 닫혀있다.', 0.1, "c", 2);
         },
         check() {
             let ok = false
@@ -2365,14 +2367,17 @@ const vil = {
         type: "hunt",
         name: "넖은ㅤ들판",
         char: "broadField",
-        monstersList: [monsters.apmon, monsters.rabbit],
+        monstersList: [monsters.apmon, monsters.rabbit, monsters.boar],
         // 돌발 몬스터 출현 확률
         dolbal: 30,
         near: ["kivotos", "westallis", "wayden"],
         looking(num) {
             if (rand(100) <= 60 || num === 1) {
-                if (rand(100) <= 30) {
+                let r = rand(100)
+                if (r <= 30) {
                     fight(monsters.apmon, 1)
+                } else if (r <= 60) {
+                    fight(monsters.boar, 1)
                 } else {
                     fight(monsters.rabbit, 1)
                 }
@@ -2540,7 +2545,7 @@ const vil = {
                     fight(monsters.golemTypeB, 1)
                 } else if (r <= 95) {
                     fight(monsters.skeleton, rand(3))
-                }{
+                } {
                     fight(monsters.magentadracal, 1)
                 }
             } else {
@@ -2633,9 +2638,9 @@ const vil = {
             if (rand(100) <= 70 || num === 1) {
                 if (r <= 15) {
                     fight(monsters.golemTypeA, 1.5)
-                } else if (r <= 65){
+                } else if (r <= 65) {
                     fight(monsters.shippo, 1)
-                } else{
+                } else {
                     fight(monsters.bhippo, 1)
                 }
             } else {
@@ -2670,7 +2675,7 @@ const vil = {
                     fight(monsters.golemTypeC, 2)
                 } else if (r <= 95) {
                     fight(monsters.rzdm, 1)
-                }{
+                } {
                     fight(monsters.trabbit, 1)
                 }
             } else {
@@ -3154,9 +3159,9 @@ const books = {
                 console.log(`리튼`);
                 console.log(`델리`);
                 console.log(`노든`);
-                console.log(`미라빌리스`);                
+                console.log(`미라빌리스`);
                 console.log(`벨리알`);
-                console.log(``);                
+                console.log(``);
             }
             if (p === 2) {
                 console.log(``);
@@ -3169,7 +3174,7 @@ const books = {
                 console.log(``);
                 console.log(`천사 「${wrtxt(3)}」님의 계시로 지식을 보관 할 수 있는 첫번째 도서관, 플루토가 지어졌습니다.`);
                 console.log(`도서관에는 여러 지식이 모이며`);
-                console.log(`플루토를 이용하기 위해 많은 사람들이 찾아옵니다.`);                
+                console.log(`플루토를 이용하기 위해 많은 사람들이 찾아옵니다.`);
                 console.log(``);
                 console.log(``);
                 console.log(`명소 : 플루토 도서관(책 열람)`);

@@ -253,13 +253,15 @@ const items = {
       anitext(p1.name + "용사는 200의 MP를 회복했다!", 0.1, "c", 0.5);
     },
   },
+
+
   tp0: {
     itemCode: "tp0",
     type: "potion",
     craft: false,
     char: "null",
     itemName: "프로토 귀환 주문서",
-    iteminfo: "테스팅.",
+    iteminfo: "급하게 이동이 필요하다면..",
     itemDesc: "프로토로 귀환한다.(전투중 사용 불가능)",
     price: 300,
     hav: 0,
@@ -271,6 +273,64 @@ const items = {
         anigiv(this, -1, 0)
         Gdata.nextVil = vil.proto
         anitext("프로토로 이동한다.", 0.1, "c", 2);
+        if (Gdata.ininv) {
+          Gdata.ininv = false
+        }
+        if (Gdata.finv) {
+          Gdata.finv = false
+        }
+        Gdata.invloci++
+        
+      }
+    },
+  },
+  tp1: {
+    itemCode: "tp1",
+    type: "potion",
+    craft: false,
+    char: "null",
+    itemName: "리튼 귀환 주문서",
+    iteminfo: "급하게 이동이 필요하다면..",
+    itemDesc: "리튼으로 귀환한다.(전투중 사용 불가능)",
+    price: 300,
+    hav: 0,
+    active() {
+      if (Gdata.ft === 1) {
+        anitext("지금은 사용 할 수 없다...", 0.1, "c", 0.5);
+      }else{
+        ck()
+        anigiv(this, -1, 0)
+        Gdata.nextVil = vil.leeten
+        anitext("리튼으로 이동한다.", 0.1, "c", 2);
+        if (Gdata.ininv) {
+          Gdata.ininv = false
+        }
+        if (Gdata.finv) {
+          Gdata.finv = false
+        }
+        Gdata.invloci++
+        
+      }
+    },
+  },
+  tp2: {
+    itemCode: "tp2",
+    type: "potion",
+    craft: false,
+    char: "null",
+    itemName: "노든 귀환 주문서",
+    iteminfo: "급하게 이동이 필요하다면..",
+    itemDesc: "노든으로 귀환한다.(전투중 사용 불가능)",
+    price: 300,
+    hav: 0,
+    active() {
+      if (Gdata.ft === 1) {
+        anitext("지금은 사용 할 수 없다...", 0.1, "c", 0.5);
+      }else{
+        ck()
+        anigiv(this, -1, 0)
+        Gdata.nextVil = vil.norden
+        anitext("노든으로 이동한다.", 0.1, "c", 2);
         if (Gdata.ininv) {
           Gdata.ininv = false
         }
@@ -2202,7 +2262,7 @@ const items = {
     itemMaxLv: 10,
     char: "null",
     itemName: "배틀 크로스 보우",
-    iteminfo: "발사 자체 필요한 시간을 획기적으로 줄일 수 있는 ",
+    iteminfo: "발사 자체에 필요한 시간을 획기적으로 줄일 수 있는 무기",
     itemDesc: "착용시 데미지를 올려준다. (강화 가능)",
     price: 550,
     hav: 0,
@@ -2216,6 +2276,7 @@ const items = {
       p1.jbspd += (this.itemLv * 5)
     },
   },
+
   tst1: {
     itemCode: "tst1",
     class: "all",
@@ -2399,6 +2460,149 @@ const items = {
     },
   },
 
+  h8: {
+    itemCode: "h8",
+    class: "warrior",
+    type: "hat",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "광전사의 투구",
+    iteminfo: "상대가 사람이라면 틀림없이 공포에 떨었을 투구. 사람이라면 말이야",
+    itemDesc: "착용시 방어력, 체력을 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbdef += 20 + (this.itemLv * 10);
+      p1.jbhp += 10 + (this.itemLv * 6);
+    },
+  },
+  a8: {
+    itemCode: "a8",
+    class: "warrior",
+    type: "armor",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "광전사의 갑옷",
+    iteminfo: "그야말로 「광인」이라는 단어가 어울리는 생김새의 갑옷",
+    itemDesc: "착용시 체력을 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbhp += 150 + (this.itemLv * 75);
+    },
+  },
+  s8: {
+    itemCode: "s8",
+    class: "warrior",
+    type: "shoes",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "광전사의 신발",
+    iteminfo: "어떤 동작이라도 부담이 가능한 탄탄한 신발",
+    itemDesc: "착용시 방어력, 스피드를 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbdef += 10;
+      p1.jbspd += 30 + (this.itemLv * 10);
+    },
+  },
+  g8: {
+    itemCode: "g8",
+    class: "warrior",
+    type: "gloves",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "광전사의 장갑",
+    iteminfo: "검을 절대로 흘리게 하지 않겠다는 장인 정신이 느껴지는 장갑",
+    itemDesc: "착용시 치명타 확률을 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbcri += 15 + (this.itemLv * 3);
+      p1.jbdmg += (this.itemLv * 5)
+    },
+  },
+  p8: {
+    itemCode: "p8",
+    class: "warrior",
+    type: "pendant",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "광전사의 반지",
+    iteminfo: "악을 처리하겠다는 전사의 마음가짐이 담겨있는 반지.",
+    itemDesc: "착용시 데미지를 증폭시킨다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.xdmg += 0.2 + (this.itemLv * 0.1);
+      p1.jbdmg += 15;
+    },
+  },
+  ww8: {
+    itemCode: "ww8",
+    class: "warrior",
+    type: "wepon",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "스워드 오브 매드니스",
+    iteminfo: "보기만 해도 전투의 열기를 느낄 수 있는 무시무시한 무기",
+    itemDesc: "착용시 데미지를 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbdmg += 30 + (this.itemLv * 10);
+    },
+  },
+
   //쉴드어태커 강철 시리즈
   h2: {
     itemCode: "h2",
@@ -2530,6 +2734,149 @@ const items = {
     cal() {
       p1.jbdef += 10;
       p1.xdef += 0.1;
+    },
+  },
+
+  h9: {
+    itemCode: "h9",
+    class: "defender",
+    type: "hat",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "미스릴 헬름",
+    iteminfo: "머리를 완벽하게 보호하며 가벼운 헬름",
+    itemDesc: "착용시 스피드, 방어력을 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbspd += 15
+      p1.jbdef += 15 + (this.itemLv * 6);
+    },
+  },
+  a9: {
+    itemCode: "a9",
+    class: "defender",
+    type: "armor",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "미스릴 갑옷",
+    iteminfo: "일반적인 금속보다 훨씬 강하고 내구성이 뛰어나, 강한 충격에도 잘 견디는 갑옷",
+    itemDesc: "착용시 방어력, 체력을 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbdef += 20 + (this.itemLv * 5);
+      p1.jbhp += 300 + (this.itemLv * 50);
+    },
+  },
+  s9: {
+    itemCode: "s9",
+    class: "defender",
+    type: "shoes",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "미스릴 부츠",
+    iteminfo: "적의 공격에도 밀리지 않는 신비한 부츠",
+    itemDesc: "착용시 방어력, 스피드를 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbdef += 10 + (this.itemLv * 5);
+      p1.jbspd += 20 
+    },
+  },
+  g9: {
+    itemCode: "g9",
+    class: "defender",
+    type: "gloves",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "미스릴 장갑",
+    iteminfo: "미스릴의 특성 덕분에 착용감이 뛰어나고, 전투 중 손의 피로를 최소화한다",
+    itemDesc: "착용시 치명타 확률을 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbcri += 20 + (this.itemLv * 1);
+    },
+  },
+  p9: {
+    itemCode: "p9",
+    class: "defender",
+    type: "pendant",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "견고한 반지",
+    iteminfo: "반지가 견고해서 어디에 쓰지..?",
+    itemDesc: "착용시 방여력을 증폭시킨다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.xdef += 0.1 + (this.itemLv * 0.1)
+    },
+  },
+  wd9: {
+    itemCode: "wd9",
+    class: "defender",
+    type: "wepon",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "미스릴 빅쉴드",
+    iteminfo: "방어 능력을 극대화하는 소재와 생김새를 하고있다.",
+    itemDesc: "착용시 방어력을 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbdmg += 35 + (this.itemLv * 5);
+      p1.jbspd += (this.itemLv * 5)
     },
   },
 
@@ -2667,6 +3014,154 @@ const items = {
     },
   },
 
+  h10: {
+    itemCode: "h10",
+    class: "rogue",
+    type: "hat",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "강탈자의 투구",
+    iteminfo: "험난한 움직임에도 불편하지 않은 투구",
+    itemDesc: "착용시 스피드, 방어력, 회피율을 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbspd += 10 + (this.itemLv * 5);
+      p1.jbdef += 20 + (this.itemLv * 5);
+      p1.jbhwp += 5;
+    },
+  },
+  a10: {
+    itemCode: "a10",
+    class: "rogue",
+    type: "armor",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "강탈자의 갑옷",
+    iteminfo: "부드럽고 질기고 단단하고 편안한 모자란 면이 없는 갑옷",
+    itemDesc: "착용시 스피드, 방어력, 체력, 회피율을 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbspd += 10 + (this.itemLv * 5);
+      p1.jbdef += 20;
+      p1.jbhp += 300 + (this.itemLv * 50);
+      p1.jbhwp += 5
+    },
+  },
+  s10: {
+    itemCode: "s10",
+    class: "rogue",
+    type: "shoes",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "강탈자의 신발",
+    iteminfo: "험하게 착지해도 소리를 최소한으로 낼 수 있는 신발",
+    itemDesc: "착용시 방어력, 스피드, 회피율을 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbdef += 10;
+      p1.jbspd += 30 + (this.itemLv * 10);
+      p1.jbhwp += 5
+    },
+  },
+  g10: {
+    itemCode: "g10",
+    class: "rogue",
+    type: "gloves",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "강탈자의 장갑",
+    iteminfo: "최상의 그립을 선사하는 장갑",
+    itemDesc: "착용시 치명타 확률, 회피율을 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbcri += 30 + (this.itemLv * 2);
+      p1.jbhwp += 5
+    },
+  },
+  p10: {
+    itemCode: "p10",
+    class: "rogue",
+    type: "pendant",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "강탈자의 팬던트",
+    iteminfo: "착용자를 진정시키는 팬던트. 고도의 집중을 필요로 하는 상황에서 딱이다.",
+    itemDesc: "착용시 데미지, 회피율를 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbdmg += 25 + (this.itemLv * 5);
+      p1.jbhwp += 10;
+    },
+  },
+  wr10: {
+    itemCode: "wr10",
+    class: "rogue",
+    type: "wepon",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "미스릴 나이프",
+    iteminfo: "적은 힘으로도 질긴 가죽을 베어내는 날카로운 나이프.",
+    itemDesc: "착용시 데미지를 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbdmg += 20 + (this.itemLv * 10);
+    },
+  },
+
   //매직캐스터  시리즈
   h6: {
     itemCode: "h6",
@@ -2801,6 +3296,156 @@ const items = {
 
     cal() {
       p1.xdmg += 0.2;
+    },
+  },
+
+  h11: {
+    itemCode: "h11",
+    class: "magiccaster",
+    type: "hat",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "수정의 서클릿",
+    iteminfo: "주문 시전에 아주 큰 도움을 주는 마도구",
+    itemDesc: "착용시 마나, 스피드, 방어력을 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbmp += 100 + (this.itemLv * 5);
+      p1.jbspd += 10 + (this.itemLv * 5);
+      p1.jbdef += 20 + (this.itemLv * 5);
+    },
+  },
+  a11: {
+    itemCode: "a11",
+    class: "magiccaster",
+    type: "armor",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "수정의 로브",
+    iteminfo: "마력의 순환을 도와주는 로브",
+    itemDesc: "착용시 데미지, 방어력, 체력을 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbdmg += 20 + (this.itemLv * 5);
+      p1.jbdef += 20;
+      p1.jbhp += 300 + (this.itemLv * 50);
+    },
+  },
+  s11: {
+    itemCode: "s11",
+    class: "magiccaster",
+    type: "shoes",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "수정의 부츠",
+    iteminfo: "지면의 영향을 최소한으로 받게 해주는 부츠",
+    itemDesc: "착용시 방어력, 스피드를 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbdef += 20;
+      p1.jbspd += 20 + (this.itemLv * 10);
+    },
+  },
+  g11: {
+    itemCode: "g11",
+    class: "magiccaster",
+    type: "gloves",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "수정의 글로브",
+    iteminfo: "심오한 주문이 묻어있어 공격을 쉽게 해준다",
+    itemDesc: "착용시 데미지, 치명타 확률을 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbcri += 30 + (this.itemLv * 1);
+      p1.jbdmg += 10 + (this.itemLv * 5)
+    },
+  },
+  p11: {
+    itemCode: "p11",
+    class: "magiccaster",
+    type: "pendant",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 20,
+    char: "null",
+    itemName: "수정의 팬던트",
+    iteminfo: "수정에 뭐가 담겨있길레.. 이리 위화감이..",
+    itemDesc: "착용시 모든 스탯을 올려준다. (강화 가능)",
+    price: 750,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbspd += 5 + (this.itemLv * 5);
+      p1.jbdmg += 5 + (this.itemLv * 5);
+      p1.jbhp += 5 + (this.itemLv * 5);
+      p1.jbmp += 5 + (this.itemLv * 5);
+      p1.jbhwp += 5 + (this.itemLv * 5);
+      p1.mpzen += 5
+    },
+  },
+  wm11: {
+    itemCode: "wm11",
+    class: "magiccaster",
+    type: "wepon",
+    craft: false,
+    reinforce: true,
+    itemLv: 0,
+    itemMaxLv: 10,
+    char: "null",
+    itemName: "적수정 스태프",
+    iteminfo: "대충 마력을 보내도 일단 마법이 나가는 신비한 스태프",
+    itemDesc: "착용시 데미지를 올려준다. (강화 가능)",
+    price: 550,
+    hav: 0,
+
+    active() {
+      anitext("사용 할 수 없다...", 0.1, "c", 0.5);
+    },
+
+    cal() {
+      p1.jbdmg += 55 + (this.itemLv * 5);
     },
   },
 
