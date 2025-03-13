@@ -115,6 +115,9 @@ const Gdata = {
     dead: false,
     cok: 1,
   },
+  npchgd:{
+    hare: 0,
+  },
   nextVil: null,
   invloci: 0,
 }

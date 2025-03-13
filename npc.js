@@ -69,6 +69,7 @@ const npc = {
             char: "bichon",
             shopname: "비숑의 장비상점",
             havQ: false,
+            date: false,
             Qlist: [],
             // list: [items.h4, items.a4, items.s4, items.g4, items.p4, items.wa4],
             list: [items.hk0, items.ak0, items.sk0, items.gk0, items.pk0],
@@ -123,6 +124,7 @@ const npc = {
             char: "amr",
             shopname: "에미르의 장비상점",
             havQ: false,
+            date: false,
             Qlist: [],
             // list: [items.h4, items.a4, items.s4, items.g4, items.p4, items.wa4],
             list: [],
@@ -285,6 +287,7 @@ const npc = {
             char: "pria",
             shopname: "프리아의 가게",
             havQ: false,
+            date: false,
             Qlist: [],
             list: [items.i3, items.i6, items.i7, items.i8],
             a: function () { },
@@ -346,6 +349,7 @@ const npc = {
             char: "ellesion",
             shopname: "엘르시온의 팬던트상점",
             havQ: false,
+            date: false,
             Qlist: [],
             list: [items.pp0, items.pp1, items.pp2, items.pp3, items.pp4],
             a: function () { },
@@ -404,6 +408,7 @@ const npc = {
             char: "wiz",
             shopname: "포션샵 위즈",
             havQ: false,
+            date: false,
             Qlist: [],
             list: [items.i0, items.i1, items.i2, items.i10, items.i11, items.i4, items.i5],
             a: function () { },
@@ -468,6 +473,7 @@ const npc = {
             char: "dmr",
             shopname: "알렌의 장비상점",
             havQ: false,
+            date: false,
             Qlist: [],
             // list: [items.h4, items.a4, items.s4, items.g4, items.p4, items.wa4],
             list: [],
@@ -543,6 +549,7 @@ const npc = {
             char: "jms",
             shopname: "리벨의 주문서 상점",
             havQ: false,
+            date: false,
             Qlist: [],
             // list: [items.h4, items.a4, items.s4, items.g4, items.p4, items.wa4],
             list: [items.tp0, items.tp1, items.tp2],
@@ -670,6 +677,7 @@ const npc = {
             name: "보미",
             char: "bommy",
             havQ: false,
+            date: false,
             Qlist: [],
             hello() {
                 anitext('"..!"', 0.1, "y", 2);
@@ -693,6 +701,7 @@ const npc = {
             name: "허수아비",
             char: "null",
             havQ: false,
+            date: false,
             Qlist: [],
             hello() {
                 anitext('"인사"', 0.1, "y", 2);
@@ -764,7 +773,7 @@ const npc = {
             name: "세이아",
             havQ: true,
             char: "seia",
-            Qlist: [quest.q4, quest.main_0,quest.main_1],
+            Qlist: [quest.q4, quest.main_0, quest.main_1],
             hello() {
                 anitext('"..?"', 0.2, "y", 2);
                 br()
@@ -831,6 +840,7 @@ const npc = {
             name: "앤서니",
             char: "anthony",
             havQ: false,
+            date: false,
             Qlist: [],
             hello() {
                 anitext('"만나서 반가워요!"', 0.05, "y", 2);
@@ -893,6 +903,7 @@ const npc = {
             name: "프리드리히",
             char: "friedrich",
             havQ: false,
+            date: false,
             Qlist: [],
             hello() {
                 anitext('"안녕!"', 0.1, "y", 2);
@@ -959,6 +970,7 @@ const npc = {
             name: "섀이드",
             char: "rbt",
             havQ: false,
+            date: false,
             Qlist: [],
             hello() {
                 anitext('"..."', 0.1, "y", 2);
@@ -999,6 +1011,7 @@ const npc = {
             name: "히미코",
             char: "himiko",
             havQ: false,
+            date: false,
             Qlist: [],
             hello() {
                 anitext('"...안녕"', 0.1, "y", 2);
@@ -1039,6 +1052,7 @@ const npc = {
             name: "아리스",
             char: "alice",
             havQ: false,
+            date: false,
             Qlist: [],
             hello() {
                 anitext('"안녕하세요!"', 0.1, "y", 2);
@@ -1082,6 +1096,7 @@ const npc = {
             name: "르네",
             char: "rene",
             havQ: false,
+            date: false,
             Qlist: [],
             hello() {
                 anitext('"안녕하신가!"', 0.1, "y", 2);
@@ -1127,6 +1142,7 @@ const npc = {
             name: "수니아",
             char: "biki",
             havQ: false,
+            date: false,
             Qlist: [],
             hello() {
                 anitext('"만나서 반가워!"', 0.1, "y", 2);
@@ -1174,6 +1190,7 @@ const npc = {
             name: "와트니",
             char: "watney",
             havQ: false,
+            date: false,
             Qlist: [],
             hello() {
                 anitext('"안녕?"', 0.1, "y", 2);
@@ -1222,6 +1239,7 @@ const npc = {
             name: "케이",
             char: "k",
             havQ: false,
+            date: false,
             Qlist: [],
             hello() {
                 anitext('"만나서 반갑네."', 0.1, "y", 2);
@@ -1262,7 +1280,8 @@ const npc = {
         hare: {
             name: "하레",
             char: "hare",
-            havQ: false,
+            havQ: true,
+            date: true,
             Qlist: [],
             hello() {
                 anitext('"안녕!"', 0.1, "y", 2);
@@ -1307,6 +1326,7 @@ const npc = {
             name: "제프",
             char: "zef",
             havQ: false,
+            date: false,
             Qlist: [],
             hello() {
                 anitext('"..안녕"', 0.1, "y", 2);
@@ -1385,6 +1405,7 @@ const npc = {
             name: "피나",
             char: "efa",
             havQ: false,
+            date: false,
             Qlist: [],
             hello() {
                 anitext('"만나서 반가워요"', 0.1, "y", 2);
@@ -1459,6 +1480,7 @@ const npc = {
             name: "멘마",
             char: "bch",
             havQ: false,
+            date: false,
             Qlist: [],
             hello() {
                 anitext('"안녕"', 0.1, "y", 2);
@@ -1500,6 +1522,7 @@ const npc = {
             innName: "여관",
             cost: 35,
             havQ: false,
+            date: false,
             Qlist: [],
             welcome() {
                 anitext('"인사"', 0.1, "y", 2);
@@ -1560,6 +1583,7 @@ const npc = {
             innName: "미도의 여관",
             cost: 25,
             havQ: false,
+            date: false,
             Qlist: [],
             welcome() {
                 anitext('"어서오세요~  미도의 여관입니다~"', 0.1, "y", 2);
@@ -1632,6 +1656,7 @@ const npc = {
             innName: "아루의 여관",
             cost: 30,
             havQ: false,
+            date: false,
             Qlist: [],
             welcome() {
                 anitext('"아우우.. 어서오세요.."', 0.15, "y", 2);
@@ -1693,6 +1718,7 @@ const npc = {
             innName: "루시의 여관",
             cost: 35,
             havQ: false,
+            date: false,
             Qlist: [],
             welcome() {
                 anitext('"어서오세요! 모험가님!"', 0.1, "y", 2);
@@ -1756,6 +1782,7 @@ const npc = {
             innName: "티아라의 여관",
             cost: 32,
             havQ: false,
+            date: false,
             Qlist: [],
             welcome() {
                 anitext('"안녕하세요! ', 0.1, "y", 0.5);
@@ -1839,6 +1866,7 @@ const npc = {
             innName: "웨이든 여관",
             cost: 40,
             havQ: false,
+            date: false,
             Qlist: [],
             welcome() {
                 anitext('"여관에 어서오세요~"', 0.1, "y", 2);
@@ -1905,6 +1933,7 @@ const npc = {
             innName: "여관",
             cost: 39,
             havQ: false,
+            date: false,
             Qlist: [],
             welcome() {
                 anitext('"여관에 어서오세요."', 0.1, "y", 2);
@@ -1966,6 +1995,7 @@ const npc = {
             innName: "여관",
             cost: 45,
             havQ: false,
+            date: false,
             Qlist: [],
             welcome() {
                 anitext('"안녕하세요..?"', 0.1, "y", 2);
@@ -2028,6 +2058,7 @@ const npc = {
             innName: "아멜리아의 여관",
             cost: 45,
             havQ: false,
+            date: false,
             Qlist: [],
             welcome() {
                 anitext('"어서오세요~"', 0.1, "y", 2);
@@ -2096,6 +2127,7 @@ const npc = {
             innName: "여관",
             cost: 32,
             havQ: false,
+            date: false,
             Qlist: [],
             welcome() {
                 anitext('"..."', 0.1, "y", 2);
@@ -2903,6 +2935,75 @@ function npctalk(name) {
     function scl() {
         SetUi("yb", name.name, "gb", name.char)
     }
+    function mys() {
+        let color = "mb"
+        let namecolor = "gb"
+        let na = name.name
+        let char = name.char
+        let line
+        if (color === "gb") {
+            line = chalk.greenBright("─".repeat(60));
+        } else if (color === "g") {
+            line = chalk.green("─".repeat(60));
+        } else if (color === "bb") {
+            line = chalk.blueBright("─".repeat(60));
+        } else if (color === "b") {
+            line = chalk.blue("─".repeat(60));
+        } else if (color === "rb") {
+            line = chalk.redBright("─".repeat(60));
+        } else if (color === "r") {
+            line = chalk.red("─".repeat(60));
+        } else if (color === "yb") {
+            line = chalk.yellowBright("─".repeat(60));
+        } else if (color === "y") {
+            line = chalk.yellow("─".repeat(60));
+        } else if (color === "mb") {
+            line = chalk.magentaBright("─".repeat(60));
+        } else if (color === "m") {
+            line = chalk.magenta("─".repeat(60));
+        } else {
+            line = chalk.white("─".repeat(60));
+        }
+        let ne
+        if (namecolor === "gb") {
+            ne = chalk.greenBright(na);
+        } else if (namecolor === "g") {
+            ne = chalk.green(na);
+        } else if (namecolor === "bb") {
+            ne = chalk.blueBright(na);
+        } else if (namecolor === "b") {
+            ne = chalk.blue(na);
+        } else if (namecolor === "rb") {
+            ne = chalk.redBright(na);
+        } else if (namecolor === "r") {
+            ne = chalk.red(na);
+        } else if (namecolor === "yb") {
+            ne = chalk.yellowBright(na);
+        } else if (namecolor === "y") {
+            ne = chalk.yellow(na);
+        } else if (namecolor === "mb") {
+            ne = chalk.magentaBright(na);
+        } else if (namecolor === "m") {
+            ne = chalk.magenta(na);
+        } else {
+            ne = chalk.white(na);
+        }
+
+        cl();
+        console.log(line);
+        process.stdout.write(chalk.cyanBright(" Lv." + p1.lv + " " + p1.name + "용사"));
+        process.stdout.write(chalk.redBright("  HP : " + p1.zhp + " / " + p1.fhp));
+        process.stdout.write(chalk.blueBright("  MP : " + p1.zmp + " / " + p1.fmp));
+        process.stdout.write(chalk.yellowBright("  Gold : " + p1.gold));
+        br();
+        console.log(line);
+        process.stdout.write("                       ");
+        process.stdout.write(ne, `   ♥ ${Gdata.npchgd[name.char]}`);
+        br();
+        console.log(line);
+        aniprt(char);
+        console.log(line);
+    }
     checkQ()
     scl();
     name.hello()
@@ -2964,12 +3065,13 @@ function npctalk(name) {
             }
 
         }
-        let plist
+        let plist = ["대화"]
         scl();
         if (cQ === 1 || toQ === 1) {
-            plist = ["대화", "퀘스트"];
-        } else {
-            plist = ["대화"];
+            plist.push("퀘스트")
+        }
+        if (name.date) {
+            plist.push("특수")
         }
 
         let pachoice = readlineSync.keyInSelect(plist, " > ", { cancel: "떠나기" }) + 1;
@@ -3099,6 +3201,15 @@ function npctalk(name) {
 
                     scl();
                 }
+                break;
+            case 3:
+                let myr = true
+                while (myr) {
+                    let mli = ["말 걸기"]
+                    mys()
+                }
+                scl();
+                name.bye()
                 break;
             case 0:
                 scl();
