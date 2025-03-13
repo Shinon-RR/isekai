@@ -975,6 +975,9 @@ function handleUserInput() {
                   let on = p1.hat.length
                   p1.hat.push({ ...items[Object.keys(items)[ii]] });
                   p1.hat[on].hav = gameDatas.p1.hat[i].hav
+                  if (p1.hat[on].reinforce) {
+                    p1.hat[on].itemLv = gameDatas.p1.hat[i].itemLv
+                  }
                 }
               }
             }
@@ -984,6 +987,9 @@ function handleUserInput() {
                   let on = p1.armor.length
                   p1.armor.push({ ...items[Object.keys(items)[ii]] });
                   p1.armor[on].hav = gameDatas.p1.armor[i].hav
+                  if (p1.armor[on].reinforce) {
+                    p1.armor[on].itemLv = gameDatas.p1.armor[i].itemLv
+                  }
                 }
               }
             }
@@ -993,6 +999,9 @@ function handleUserInput() {
                   let on = p1.shoes.length
                   p1.shoes.push({ ...items[Object.keys(items)[ii]] });
                   p1.shoes[on].hav = gameDatas.p1.shoes[i].hav
+                  if (p1.shoes[on].reinforce) {
+                    p1.shoes[on].itemLv = gameDatas.p1.shoes[i].itemLv
+                  }
                 }
               }
             }
@@ -1002,6 +1011,9 @@ function handleUserInput() {
                   let on = p1.gloves.length
                   p1.gloves.push({ ...items[Object.keys(items)[ii]] });
                   p1.gloves[on].hav = gameDatas.p1.gloves[i].hav
+                  if (p1.gloves[on].reinforce) {
+                    p1.gloves[on].itemLv = gameDatas.p1.gloves[i].itemLv
+                  }
                 }
               }
             }
@@ -1011,6 +1023,9 @@ function handleUserInput() {
                   let on = p1.pendant.length
                   p1.pendant.push({ ...items[Object.keys(items)[ii]] });
                   p1.pendant[on].hav = gameDatas.p1.pendant[i].hav
+                  if (p1.pendant[on].reinforce) {
+                    p1.pendant[on].itemLv = gameDatas.p1.pendant[i].itemLv
+                  }
                 }
               }
             }
@@ -1020,6 +1035,9 @@ function handleUserInput() {
                   let on = p1.wepon.length
                   p1.wepon.push({ ...items[Object.keys(items)[ii]] });
                   p1.wepon[on].hav = gameDatas.p1.wepon[i].hav
+                  if (p1.wepon[on].reinforce) {
+                    p1.wepon[on].itemLv = gameDatas.p1.wepon[i].itemLv
+                  }
                 }
               }
             }
@@ -1045,6 +1063,9 @@ function handleUserInput() {
               for (let ii = 0; ii < Object.keys(items).length; ii++) {
                 if (items[Object.keys(items)[ii]].itemCode === gameDatas.p1.inven[i].itemCode) {
                   gameDatas.p1.inven[i].active = items[Object.keys(items)[ii]].active
+                  if (items[Object.keys(items)[ii]].cal) {                    
+                    gameDatas.p1.inven[i].cal = items[Object.keys(items)[ii]].cal
+                  }
                   p1.inven.push(gameDatas.p1.inven[i])
                 }
               }

@@ -22,13 +22,15 @@ const vil = {
         dolbal: 0,
         near: ["proto"],
         looking(num) {
-            let rd = rand(4)
+            let rd = rand(5)
             if (rd === 4) {
                 fight(monsters.zep_kh, 1)
             } else if (rd === 3) {
                 fight(monsters.zep_yh, 1)
             } else if (rd === 2) {
                 fight(monsters.zep_js, 1)
+            } else if (rd === 5) {
+                fight(monsters.zep_sw, 1)
             } else {
                 fight(monsters.zep_tg, 1)
             }
