@@ -2187,12 +2187,11 @@ const vil = {
         },
         check() {
             let ok = false
-            // 입장 조건
-            if (p1.lv >= 30) {
+            if (ckit(items.z1, 1)) {
                 ok = true
             } else {
                 br()
-                anitext('지금 가기엔 너무 위험하다..', 0.1, "c", 2);
+                anitext('출입증이 없다.', 0.1, "c", 2);
             }
             return ok
         }

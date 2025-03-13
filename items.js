@@ -1728,9 +1728,9 @@ const items = {
     type: "etc",
     craft: false,
     char: "null",
-    itemName: "뭐시기의 증표",
-    iteminfo: "어쩌구.",
-    itemDesc: "뭐시기 출입을 가능하게 한다.",
+    itemName: "출입증",
+    iteminfo: "금지된 장소로 향할 수 있도록 해준다.",
+    itemDesc: "마지막의 허락.",
     price: 0,
     hav: 0,
 

@@ -1037,7 +1037,7 @@ const quest = {
         repeatable: false,
         name: "메인 - 미라빌리스",
         info: '"미라빌리스에서 전언이 왔다.\n불길한 기운이 느껴지지만 가도록 하자.',
-        reward: "별의 조각 * 15",
+        reward: "출입증",
         killtarget: [],
         needKill: [0],
         nowKill: [0],
@@ -1061,18 +1061,20 @@ const quest = {
         },
         complete() {
             let ok = true
-            // for (let gi = 0; gi < this.temtarget.length; gi++) {
-            //     anigiv(this.temtarget[gi], (-1 * this.needtem[gi]), 0)
-            // }
-            anitext('"뭐, 할 말이라도 있냐?"', 0.1, "y", 1);
-            br()
-            anitext('"요코님께서 보내셨다고?"', 0.1, "y", 1);
-            br()
-            anitext('"..."', 0.1, "y", 2);
-            p1.exp += 40
-            p1.gold += 20
-            this.clear = true
-            this.clearCount++
+            if (ckslot(1)) {
+                anigiv(items.z1, 1, 0)
+                anitext('"뭐, 할 말이라도 있냐?"', 0.1, "y", 1);
+                br()
+                anitext('"요코님께서 보내셨다고?"', 0.1, "y", 1);
+                br()
+                anitext('"..."', 0.1, "y", 2);
+                this.clear = true
+                this.clearCount++
+                checklv()
+            } else {
+                anitext('가방에 공간이 없다..', 0.1, "c", 2);
+                ok = false
+            }
             checklv()
             return ok
         },

@@ -1549,7 +1549,7 @@ const monsters = {
     tk1: '"크르르"',
     tk2: '"...크헝"',
     exp: 300,
-    gold: 30,
+    gold: 444,
 
     tem() {
       if (60 >= rand(100)) {
@@ -1616,7 +1616,7 @@ const monsters = {
 
     tem() {
       if (60 >= rand(100)) {
-        anigiv(items.e24, 1, 1)
+        anigiv(items.e25, 1, 1)
       }
       if (20 >= rand(100)) {
         anigiv(items.e1, 1, 1)
@@ -1697,7 +1697,7 @@ const monsters = {
     buf: [],
     tk1: '"끄응?"',
     tk2: '"끄으으.."',
-    exp: 50,
+    exp: 20,
     gold: 10,
 
     tem() {
@@ -1948,44 +1948,44 @@ const monsters = {
             //어려운 문제
             switch (co) {
               case 1:
-                anitext('"슈퍼주니어가 사는 동네는?"', 0.1, "w", 2);
-                answer = "링딩동"
+                anitext('"문제"', 0.1, "w", 2);
+                answer = "정답"
                 break;
               case 2:
-                anitext('"달에서 사는 사람들이 쓰는 언어는?"', 0.1, "w", 2);
-                answer = "문어"
+                anitext('"문제"', 0.1, "w", 2);
+                answer = "정답"
                 break;
               case 3:
-                anitext('"용이 깜짝! 놀라면?"', 0.1, "w", 2);
-                answer = "띠용"
+                anitext('"문제"', 0.1, "w", 2);
+                answer = "정답"
                 break;
               case 4:
-                anitext('"화장실에서 방금 나온 사람은?"', 0.1, "w", 2);
-                answer = "일본 사람"
+                anitext('"문제"', 0.1, "w", 2);
+                answer = "정답"
                 break;
               case 5:
-                anitext('"네 명이 오줌을 싸면?"', 0.1, "w", 2);
-                answer = "포뇨"
+                anitext('"문제"', 0.1, "w", 2);
+                answer = "정답"
                 break;
               case 6:
-                anitext('"가장 폭력적인 동물은?"', 0.1, "w", 2);
-                answer = "팬다"
+                anitext('"문제"', 0.1, "w", 2);
+                answer = "정답"
                 break;
               case 7:
-                anitext('"기름을 추출하는데 걸리는 시간은?"', 0.1, "w", 2);
-                answer = "오일"
+                anitext('"문제"', 0.1, "w", 2);
+                answer = "정답"
                 break;
               case 8:
-                anitext('"할아버지가 좋아하는 돈은?"', 0.1, "w", 2);
-                answer = "할머니"
+                anitext('"문제"', 0.1, "w", 2);
+                answer = "정답"
                 break;
               case 9:
-                anitext('"소가 불에 타면??"', 0.1, "w", 2);
-                answer = "탄소"
+                anitext('"문제"', 0.1, "w", 2);
+                answer = "정답"
                 break;
               case 10:
-                anitext('"물고기가 싫어하는 물은??"', 0.1, "w", 2);
-                answer = "그물"
+                anitext('"문제"', 0.1, "w", 2);
+                answer = "정답"
                 break;
               default:
                 break;
@@ -2128,7 +2128,7 @@ const monsters = {
     atk() {
       fui(Gdata.monster.art);
       anitext("튜터는 코드를 작성한다.", 0.1, "c", 2);
-      fui(Gdata.monster.art);
+      fui("zep.sw.at");
       anitext(`akt(${p1.name}, ${Gdata.FMdata.fmdmg})`, 0.01, "w", 1);
       Gdata.FMdata.mcal = Gdata.FMdata.fmdmg;
       if (mzcaca(Gdata.FMdata.mcal)) {
