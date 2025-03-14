@@ -73,6 +73,8 @@ const fs = require('fs');
 const { quest } = require('./quest');
 let tsmon = _tsmon;
 const musicPlayer = require('play-sound')(opts = {})
+const sound = require('sound-play');
+const path = require('path');
 
 
 function openiv() {
@@ -1900,9 +1902,14 @@ function start() {
   handleUserInput();
   gend = 0;
 }
-musicPlayer.play('music.mp3', function(err){
-  if (err) throw err
-})
+// musicPlayer.play('music.mp3', { timeout: 300 }, function(err){
+//   if (err) throw err
+// })
+const filePath = path.join(__dirname, "./music.mp3");
+let volume = 0.2;
+sound.play(filePath,volume);
+// sound.play(path.join(__dirname, './music.mp3'));
+// sound.play("music.mp3", volume);
 while (true) {
   start();
 }
