@@ -1760,9 +1760,9 @@ const monsters = {
   zep_kh: {
     name: "이광호",
     art: "zep.kh",
-    hp: 400,
+    hp: 250,
     spd: 15,
-    dmg: 100,
+    dmg: 60,
     def: 20,
     buf: [],
     tk1: '"안녕하십니까 용사님."',
@@ -1771,12 +1771,6 @@ const monsters = {
     gold: 10,
 
     tem() {
-      // if (60 >= rand(100)) {
-      //   anigiv(items.e0, rand(3), 1)
-      // }
-      // if (20 >= Math.floor(Math.random() * 100) + 1) {
-      //   anigiv(items.e1, 1, 1)
-      // }
     },
 
     atk() {
@@ -1802,9 +1796,9 @@ const monsters = {
   zep_yh: {
     name: "정영훈",
     art: "zep.yh",
-    hp: 400,
+    hp: 250,
     spd: 10,
-    dmg: 100,
+    dmg: 50,
     def: 20,
     buf: [],
     tk1: '"안녕하세요. 저의 개그를 들으십시오"',
@@ -1909,9 +1903,9 @@ const monsters = {
   zep_js: {
     name: "변정섭",
     art: "zep.js",
-    hp: 400,
+    hp: 250,
     spd: 10,
-    dmg: 100,
+    dmg: 50,
     def: 20,
     buf: [],
     tk1: '"그동안 CS공부는 열심히 하셨습니까?"',
@@ -1943,49 +1937,35 @@ const monsters = {
           anitext("튜터는 문제를 준비한다.", 0.1, "c", 2);
           fui(Gdata.monster.art);
           let co = rand(10)
-          let answer = ""
+          let answer = 0
+          let li = []
           if (this.bs === 1) {
             //어려운 문제
             switch (co) {
               case 1:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
+                anitext('"JavaScript에서 이벤트 버블링(Event Bubbling)이란 무엇인가요?"', 0.1, "w", 2);
+                li = ["이벤트가 가장 안쪽의 요소에서 바깥쪽 요소로 전파되는 현상", "이벤트가 바깥쪽 요소에서 안쪽 요소로 전파되는 현상", "이벤트가 동시에 여러 요소에서 발생하는 현상", "이벤트가 특정 요소에서만 발생하고 전파되지 않는 현상"]
+                answer = 1
                 break;
               case 2:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
+                anitext('"HTTP 상태 코드 404는 무엇을 의미하나요?"', 0.1, "w", 2);
+                li = ["요청 성공", "서버 오류", "페이지를 찾을 수 없음", "권한 없음"]
+                answer = 3
                 break;
               case 3:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
+                anitext('"JavaScript에서 `typeof null`의 결과는 무엇인가요?"', 0.1, "w", 2);
+                li = [`"null"`, `"object"`, `"undefined"`, `"number"`]
+                answer = 2
                 break;
               case 4:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
+                anitext('"JavaScript에서 비동기 작업을 처리하는 방법이 아닌 것은?"', 0.1, "w", 2);
+                li = ["Promises", "async/await", "callbacks", "for loops"]
+                answer = 4
                 break;
               case 5:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
-                break;
-              case 6:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
-                break;
-              case 7:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
-                break;
-              case 8:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
-                break;
-              case 9:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
-                break;
-              case 10:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
+                anitext('"브라우저에서 사용자 데이터를 저장하는 방법 중 페이지를 닫아도 데이터가 유지되는 것은?"', 0.1, "w", 2);
+                li = ["localStorage", "sessionStorage", "html", "javascript"]
+                answer = 1
                 break;
               default:
                 break;
@@ -1993,57 +1973,42 @@ const monsters = {
           } else {
             switch (co) {
               case 1:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
+                anitext('"IP 주소의 의미는 무엇인가요?"', 0.1, "w", 2);
+                li = ["Information Provider 주소", "Internet Protocol 주소", "Internet Provider 주소", "Internal Process 주소"]
+                answer = 2
                 break;
               case 2:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
+                anitext('"HTML은 무엇의 약자인가요?"', 0.1, "w", 2);
+                li = ["Hyper Text Markup Language", "High Tech Modern Language", "Hyper Transfer Mode Language", "Home Tool Management Language"]
+                answer = 1
                 break;
               case 3:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
+                anitext('"JavaScript에서 변수를 선언하는 키워드가 아닌 것은?"', 0.1, "w", 2);
+                li = ["var", "let", "const", "variable"]
+                answer = 4
                 break;
               case 4:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
+                anitext('"JavaScript에서 배열의 끝에 새 요소를 추가하는 메소드는?"', 0.1, "w", 2);
+                li = ["add()", "append()", "push()", "insert()"]
+                answer = 3
                 break;
               case 5:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
-                break;
-              case 6:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
-                break;
-              case 7:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
-                break;
-              case 8:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
-                break;
-              case 9:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
-                break;
-              case 10:
-                anitext('"문제"', 0.1, "w", 2);
-                answer = "정답"
+                anitext('"JavaScript에서 조건문을 작성할 때 사용하는 키워드는?"', 0.1, "w", 2);
+                li = ["check", "if", "condition", "when"]
+                answer = 2
                 break;
               default:
                 break;
             }
           }
-          let ans = readlineSync.question(" > ");
+          let ans = readlineSync.keyInSelect(li, " > ", { cancel: "포기" }) + 1;
           if (ans === answer) {
             anitext('"오오..', 0.1, "w", 0.5);
             anitext('정답입니다."', 0.1, "w", 2);
           } else {
             anitext('"이런.."', 0.1, "w", 1);
             br()
-            anitext('"정답은 [ ' + answer + ' ]입니다."', 0.1, "w", 2);
+            anitext('"정답은 [ ' + li[answer - 1] + ' ]입니다."', 0.1, "w", 2);
             Gdata.FMdata.mcal = Gdata.FMdata.fmdmg;
             mzcaca(Gdata.FMdata.mcal);
           }
@@ -2064,9 +2029,9 @@ const monsters = {
   zep_tg: {
     name: "손태권",
     art: "zep.tg",
-    hp: 400,
+    hp: 250,
     spd: 15,
-    dmg: 100,
+    dmg: 60,
     def: 20,
     buf: [],
     tk1: '"안녕하세요, 여러분!"',
@@ -2106,7 +2071,7 @@ const monsters = {
   zep_sw: {
     name: "하승우",
     art: "zep.sw",
-    hp: 400,
+    hp: 250,
     spd: 15,
     dmg: 50,
     def: 20,
@@ -2133,6 +2098,74 @@ const monsters = {
       Gdata.FMdata.mcal = Gdata.FMdata.fmdmg;
       if (mzcaca(Gdata.FMdata.mcal)) {
         anitext("공격을 받지 않았는데 몸이 찢기는 고통이다.", 0.1, "c", 1);
+      }
+    },
+  },
+  zep_jw: {
+    name: "진우원",
+    art: "zep.jw",
+    hp: 250,
+    spd: 15,
+    dmg: 70,
+    def: 20,
+    buf: [],
+    tk1: '"저를 쓰러트리셔야 합니다."',
+    tk2: '"저를 이기시다니.. 강하시군요"',
+    exp: 10,
+    gold: 10,
+
+    tem() {
+      // if (60 >= rand(100)) {
+      //   anigiv(items.e0, rand(3), 1)
+      // }
+      // if (20 >= Math.floor(Math.random() * 100) + 1) {
+      //   anigiv(items.e1, 1, 1)
+      // }
+    },
+
+    atk() {
+      fui("zep.jw.of");
+      anitext("튜터는 썬글라스를 벗었다!", 0.1, "c", 2);
+      fui("zep.jw.at");
+      anitext('"절 이기긴 힘들겁니다."', 0.1, "w", 2);
+      Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
+      mzcaca(Gdata.FMdata.mcal)
+    },
+  },
+  zep_tt: {
+    name: "김창민",
+    art: "zep.tt",
+    hp: 250,
+    spd: 15,
+    dmg: 80,
+    def: 0,
+    buf: [],
+    tk1: '"쉽게는 못 이기십니다."',
+    tk2: '"크윽.."',
+    exp: 10,
+    gold: 10,
+
+    tem() {
+      // if (60 >= rand(100)) {
+      //   anigiv(items.e0, rand(3), 1)
+      // }
+      // if (20 >= Math.floor(Math.random() * 100) + 1) {
+      //   anigiv(items.e1, 1, 1)
+      // }
+    },
+
+    atk() {
+      fui(Gdata.monster.art);
+      anitext("튜터는 확성기를 준비한다!", 0.1, "c", 2);
+      fui("zep.tt.at");
+      anitext('"널 사랑해!!!"', 0.1, "w", 2);
+      Gdata.FMdata.mcal = Gdata.FMdata.fmdmg - p1.zdef;
+      if (mzcaca(Gdata.FMdata.mcal)) {
+        if (rand(100) <= 80) {
+          givbuff(buffs.bleeding, 3)
+          br()
+          anitext("고막이 찢어져서 피가 흐른다!", 0.1, "c", 1);
+        }
       }
     },
   },

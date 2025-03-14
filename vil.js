@@ -22,7 +22,7 @@ const vil = {
         dolbal: 0,
         near: ["proto"],
         looking(num) {
-            let rd = rand(5)
+            let rd = rand(7)
             if (rd === 4) {
                 fight(monsters.zep_kh, 1)
             } else if (rd === 3) {
@@ -31,6 +31,10 @@ const vil = {
                 fight(monsters.zep_js, 1)
             } else if (rd === 5) {
                 fight(monsters.zep_sw, 1)
+            } else if (rd === 6) {
+                fight(monsters.zep_jw, 1)
+            } else if (rd === 7) {
+                fight(monsters.zep_tt, 1)
             } else {
                 fight(monsters.zep_tg, 1)
             }
@@ -56,7 +60,7 @@ const vil = {
         slist: [npc.shopkeeper.potter],
         npcs: [npc.villager.seia, npc.villager.rumia],
         inn: [npc.inn.mido],
-        near: ["wolvesFields"],
+        near: ["wolvesFields", "zep"],
 
         specName: "플루토",
         special() {
@@ -2456,7 +2460,7 @@ const vil = {
         check() {
             let ok = false
             // 입장 조건
-            if (p1.lv >= 1) {
+            if (p1.lv >= 7) {
                 ok = true
             } else {
                 br()
@@ -2537,7 +2541,7 @@ const vil = {
         type: "hunt",
         name: "델리ㅤ계곡",
         char: "forest",
-        monstersList: [monsters.golemTypeB, monsters.magentadracal],
+        monstersList: [monsters.golemTypeB, monsters.skeleton, monsters.magentadracal],
         // 돌발 몬스터 출현 확률
         dolbal: 30,
         near: ["dracalNest", "delly"],
@@ -2632,7 +2636,7 @@ const vil = {
         type: "hunt",
         name: "여명의ㅤ우림",
         char: "forest",
-        monstersList: [monsters.golemTypeA, monsters.shippo],
+        monstersList: [monsters.golemTypeA, monsters.shippo, monsters.bhippo],
         // 돌발 몬스터 출현 확률
         dolbal: 30,
         near: ["underMountHill", "mirabilis"],
@@ -2667,7 +2671,7 @@ const vil = {
         type: "hunt",
         name: "평온했던ㅤ우림",
         char: "forest",
-        monstersList: [monsters.golemTypeC, monsters.trabbit],
+        monstersList: [monsters.golemTypeC, monsters.rzdm, monsters.trabbit],
         // 돌발 몬스터 출현 확률
         dolbal: 10,
         near: ["mirabilis", "silentForest"],
@@ -3350,44 +3354,44 @@ const books = {
     },
     b1: {
         id: "b1",
-        name: "[쇼핑 가이드 - 에덴]",
-        writeby: "인젤",
-        info: "각 마을의 상점들 이야기를 담은 서적.",
-        page: 2,
+        name: "[에덴의 몬스터]",
+        writeby: `${wrtxt(4)}`,
+        info: "에덴에서 출몰하는 몬스터의 정보를 담은 서적.",
+        page: 10,
         lcor: "yb",
         ncor: "cb",
         open(p) {
             if (p === 1) {
                 console.log(``);
+                console.log(`에덴의 몬스터`);
                 console.log(``);
+                console.log(`몬스터 출몰 지역 목록`);
                 console.log(``);
-                console.log(``);
-                console.log(``);
-                console.log(``);
-                console.log(``);
-                console.log(``);
-                console.log(``);
-                console.log(``);
-                console.log(``);
-                console.log(``);
-                console.log(``);
-                console.log(``);
-                console.log(``);
+                console.log(`울베스 들판, 울베스 숲`);
+                console.log(`박쥐 동굴, 깊은 숲`);
+                console.log(`빛이 닿는 곳, 넓은 들판`);
+                console.log(`일몰 해변, 웨이든 단구`);
+                console.log(`칼날소리 평야, 드라칼 서식지, 델리 계곡`);
+                console.log(`하이마운트, 언더마운트 힐`);
+                console.log(`여명의 우림, 평온했던 우림`);
+                console.log(`고요한 숲, 데드락`);
+                console.log(`${wrtxt(8)}`);
+                console.log(`${wrtxt(5)}`);
                 console.log(``);
             }
             if (p === 2) {
                 console.log(``);
+                console.log(`울베스 들판`);
+                console.log(`비교적 한적한 들판이다.`);
+                console.log(`늑대가 종종 출몰함`);
+                console.log(`황금 늑대가 아주 가끔 출몰함`);
                 console.log(``);
                 console.log(``);
-                console.log(``);
-                console.log(``);
-                console.log(``);
-                console.log(``);
-                console.log(``);
-                console.log(``);
-                console.log(``);
-                console.log(``);
-                console.log(``);
+                console.log(`울베스 숲`);
+                console.log(`신선한 바람이 불어오는 숲.`);
+                console.log(`늑대가 종종 출몰함`);
+                console.log(`황금 늑대가 가끔 출몰함`);
+                console.log(`고블린이 아주 가끔 출몰함`);
                 console.log(``);
                 console.log(``);
                 console.log(``);
@@ -3395,9 +3399,135 @@ const books = {
             }
             if (p === 3) {
                 console.log(``);
+                console.log(`박쥐 동굴`);
+                console.log(`음산하고 소름돋는 동굴.`);
+                console.log(`흡혈 박쥐가 종종 출몰함`);
+                console.log(`불길한 염소가 아주 가끔 출몰함`);
+                console.log(``);
+                console.log(``);
+                console.log(`깊은 숲`);
+                console.log(`무서운 몬스터의 울음소리가 들려오는 숲.`);
+                console.log(`늑대가 가끔 출몰함`);
+                console.log(`황금 늑대가 아주 가끔 출몰함`);
+                console.log(`숲의 라이쿠가 종종 출몰함`);
+                console.log(`고블린이 가끔 출몰함`);
+                console.log(`해품달이 아주 가끔 출몰함`);
+                console.log(``);
+                console.log(``);
+            }
+            if (p === 4) {
+                console.log(``);
+                console.log(`빛이 닿는 곳`);
+                console.log(`리자드맨이 종종 출몰함`);
+                console.log(`해품달이 종종 출몰함`);
+                console.log(`빛나는 해품달이 가끔 출몰함`);
+                console.log(``);
+                console.log(``);
+                console.log(`넓은 들판`);
+                console.log(`아주.. 아주 넓은 들판.`);
+                console.log(`토끼가 종종 출몰함`);
+                console.log(`수상한 사과가 종종 출몰함`);
+                console.log(`와일드 호그가 종종 출몰함`);
                 console.log(``);
                 console.log(``);
                 console.log(``);
+                console.log(``);
+            }
+            if (p === 5) {
+                console.log(``);
+                console.log(`일몰 해변`);
+                console.log(`해가 지는 풍경을 보면 마음이 따뜻해지는 해변.`);
+                console.log(`쉘 스파이더가 종종 출몰함`);
+                console.log(`아주 강력한 쉘 스파이더가 아주 가끔 출몰함`);
+                console.log(``);
+                console.log(``);
+                console.log(`웨이든 단구`);
+                console.log(`잔잔한 해풍이 불어오는 단구`);
+                console.log(`쉘 스파이더가 종종 출몰함`);
+                console.log(`골렘 TypeC가 가끔 출몰함`);
+                console.log(``);
+                console.log(``);
+                console.log(``);
+                console.log(``);
+                console.log(``);
+            }
+            if (p === 6) {
+                console.log(``);
+                console.log(`칼날소리 평야`);
+                console.log(`귀가 아플 지경으로 소음이 심한 평야`);
+                console.log(`칼날수리가 종종 출몰함`);
+                console.log(`골렘 TypeA가 기적적으로 출몰함`);
+                console.log(``);
+                console.log(`드라칼 서식지`);
+                console.log(`드라칼이 출몰한다는 무시무시한 숲.`);
+                console.log(`레드 or 블루 드라칼이 반드시 출몰함`);
+                console.log(`마젠타 드라칼이 가끔 출몰함`);
+                console.log(``);
+                console.log(`델리 계곡`);
+                console.log(`드라칼 서식지 그 뒤에 숨겨진 계곡.`);
+                console.log(`골렘 TypeB가 가끔 출몰함`);
+                console.log(`스켈레톤이 종종 출몰함`);
+                console.log(`마젠타 드라칼이 기적적으로 출몰함`);
+            }
+            if (p === 7) {
+                console.log(``);
+                console.log(`하이마운트`);
+                console.log(`아주 높아서 밑을 내려다 보기 두려운 절벽.`);
+                console.log(`마젠타 드라칼이 반드시 출몰함`);
+                console.log(``);
+                console.log(``);
+                console.log(`언더 마운트 힐`);
+                console.log(`높디 높은 절벽의 하단부.`);
+                console.log(`아주 강력한 늑대가 종종 출몰함`);
+                console.log(`강력한 와일드 호그가 가끔 출몰함`);
+                console.log(``);
+                console.log(``);
+                console.log(``);
+                console.log(``);
+                console.log(``);
+                console.log(``);
+            }
+            if (p === 8) {
+                console.log(``);
+                console.log(`여명의 우림`);
+                console.log(`불길하며 신성하게 느껴지는 우림.`);
+                console.log(`피그미가 종종 출몰함`);
+                console.log(`베히모스가 가끔 출몰함`);
+                console.log(`조금 강력한 골렘 TypeA가 아주 가끔 출몰함`);
+                console.log(``);
+                console.log(``);
+                console.log(`평온했던 우림`);
+                console.log(`조용하다. 너무 조용해서 오히려 소름돋는 우림.`);
+                console.log(`강력한 골렘 TypeC가 종종 출몰함`);
+                console.log(`강력한 리자드맨이 종종 출몰함`);
+                console.log(`상당히 강력한 리자드맨이 종종 출몰함`);
+                console.log(`${wrtxt(2)}가 기적적으로 출몰함`);
+                console.log(``);
+                console.log(``);
+            }
+            if (p === 9) {
+                console.log(``);
+                console.log(`고요한 숲`);
+                console.log(`아무런 소리가 들리지 않는 숲.`);
+                console.log(`${wrtxt(2)}가 기적적으로 출몰함`);
+                console.log(``);
+                console.log(``);
+                console.log(`데드락`);
+                console.log(`${wrtxt(15)}`);
+                console.log(`${wrtxt(8)}가 종종 출몰함`);
+                console.log(`${wrtxt(10)}가 종종 출몰함`);
+                console.log(``);
+                console.log(``);
+                console.log(``);
+                console.log(``);
+                console.log(``);
+                console.log(``);
+            }
+            if (p === 10) {
+                console.log(``);
+                console.log(`${wrtxt(5)}`);
+                console.log(`${wrtxt(15)}`);
+                console.log(`${wrtxt(5)}가 반드시 출몰함`);
                 console.log(``);
                 console.log(``);
                 console.log(``);

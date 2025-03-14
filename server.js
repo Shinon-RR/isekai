@@ -845,7 +845,7 @@ let ln;
 let n;
 
 //메인
-Gdata.nextVil = vil.proto
+Gdata.nextVil = vil.zep
 function handleUserInput() {
   let bachoice = ["새로운 게임 시작", "이어서 하기(미완)", "테스팅 메뉴"];
   let choice = readlineSync.keyInSelect(bachoice, " > ", { cancel: "종료" }) + 1;
@@ -1863,7 +1863,25 @@ function fgame() {
   br();
   anitext('"이쪽으로 가면 마을이 나오려나.."', 0.1, "w", 1);
   set()
-  anitext("그렇게 " + p1.name + "용사는 길을 따라 걷기 시작합니다.",0.1,"c",1);
+  anitext("그렇게 " + p1.name + "용사는 길을 따라 걷기 시작합니다.",0.1,"c",2);
+  char = "code"
+  set()
+  anitext("게임을 진행하시면 종종 입력을 받는 경우가 있습니다.", 0.1, "c", 1);
+  br()
+  anitext("선택지를 정확히 숫자로 입력 하셔야 합니다.", 0.1, "c", 1);
+  br()
+  anitext("선택지에 써있지 않아도 0을 입력하면 보통은 이전 메뉴로 돌아갑니다.", 0.1, "c", 1);
+  br()
+  let che12 = readlineSync.question("확인했습니다. > ");
+  set()
+  anitext("프로토 마을으로 향하시면 플루토 이용을 해보세요!", 0.1, "c", 1);
+  br()
+  anitext("여러가지 정보를 얻을 수 있습니다.", 0.1, "c", 1);
+  let pdt = ["알겠습니다."]
+  let paice = readlineSync.keyInSelect(pdt, " > ", { cancel: "싫은데요." }) + 1;
+  anitext(`용사님의 힘으로 세ㅍ${wrtxt(15)}`, 0.1, "c", 1);
+  br()
+  anitext(`어...${wrtxt(25)}`, 0.05, "c", 2);
   igame();
 }
 function igame() {
