@@ -8,7 +8,7 @@ https://nodejs.org/ko/download
 msi 파일을 받아 설치 하시면 됩니다.
 
 게임파일
-https://drive.google.com/file/d/1mdVNm-wP60jKfr8qHlo1ldOGYt2G-gp-/view?usp=sharing
+https://drive.google.com/file/d/1Pj33CRSSGpDkdWmadty8QCS8pv7hQBFh/view?usp=sharing
 
 윈도우의 경우
 폴더 내 start.bat 파일을 실행하시면 됩니다.
