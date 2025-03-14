@@ -3,7 +3,7 @@
 // import readlineSync from "readline-sync";
 
 const { vil } = require("./vil");
-const { default: chalk } = require("chalk");
+const chalk = require("chalk");
 const figlet = require("figlet");
 const readlineSync = require("readline-sync");
 let { p1, Gdata } = require("./users-data");
@@ -86,7 +86,7 @@ let tsmon = _tsmon;
 function openiv() {
   checkstat();
   let invchoice;
-  let list = ["내 정보", "장비", "스킬", "가방", "퀘스트", "세이브", "타이틀로"];
+  let list = ["내 정보", "장비", "스킬", "가방", "퀘스트", "세이브", "타이틀로(고장)"];
   let invi = 0;
   Gdata.finv = true
   while (Gdata.finv) {

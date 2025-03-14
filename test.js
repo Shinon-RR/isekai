@@ -1,4 +1,4 @@
-const { default: chalk } = require("chalk");
+const chalk = require("chalk");
 const { vil } = require("./vil");
 const { Gdata } = require("./G-data");
 const { sleep } = require("./func");

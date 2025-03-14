@@ -1,4 +1,4 @@
-const { default: chalk } = require("chalk");
+const chalk = require("chalk");
 const { p1, Gdata } = require("./users-data");
 // const { Gdata } = require("./G-data");
 let { vil: _vil } = require("./vil");

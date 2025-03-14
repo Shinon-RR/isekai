@@ -1,4 +1,4 @@
-const { default: chalk } = require("chalk");
+const chalk = require("chalk");
 const { items } = require("./items");
 // const { items } = require("./items2");
 const { sleep, aniprt, br, cl, anitext, anigiv, rand, checkQ, leadingZeros, SetUi, wrtxt } = require("./func");

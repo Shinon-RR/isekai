@@ -1,4 +1,4 @@
-const { default: chalk } = require("chalk");
+const chalk = require("chalk");
 const { rand, ckit, br, anitext, aniprt, checkQ, anigiv, cl, leadingZeros, SetUi, ckitcount, shuffle, wrtxt } = require("./func");
 const readlineSync = require("readline-sync");
 // const { Gdata } = require("./G-data");
