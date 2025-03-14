@@ -6,7 +6,6 @@ const { monsters, fight, items } = require("./monsters");
 const { npc, canuQ } = require("./npc");
 const { quest } = require("./quest");
 const { p1, Gdata } = require("./users-data");
-const { default: chalk } = require("chalk");
 
 
 //지역 데이터
