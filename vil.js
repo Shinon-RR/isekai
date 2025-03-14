@@ -879,9 +879,9 @@ const vil = {
                         SetUi("mb", onname, "yb", "chef");
                         let trand = rand(5);
                         if (trand === 1) {
-                            anitext('"1-1"', 0.1, "y", 2);
+                            anitext('"웨이든에서 가장 유명한 가게가 어딘지 아세요?"', 0.1, "y", 2);
                             br();
-                            anitext('"1-2"', 0.1, "y", 2);
+                            anitext('"흠흠..!"', 0.1, "y", 2);
                         } else if (trand === 2) {
                             anitext('"2-1"', 0.1, "y", 1);
                             br();
@@ -1390,26 +1390,26 @@ const vil = {
                         SetUi("mb", onname, "yb", "smith");
                         let trand = rand(5);
                         if (trand === 1) {
-                            anitext('"1-1"', 0.1, "y", 2);
+                            anitext('"재료가 부족하다고?"', 0.1, "y", 1);
                             br();
-                            anitext('"1-2"', 0.1, "y", 2);
+                            anitext('"하하하!.. 그건 나도 방법이 없다네.."', 0.1, "y", 2);
                         } else if (trand === 2) {
-                            anitext('"2-1"', 0.1, "y", 1);
+                            anitext('"골렘을 잡아서 장비 의뢰를 할 정도면.."', 0.1, "y", 1);
                             br();
-                            anitext('"2-2"', 0.1, "y", 2);
+                            anitext('"보지 않았지만 얼마나 노력했을지 다 보이는구먼.."', 0.1, "y", 2);
                         } else if (trand === 3) {
-                            anitext('"3-1"', 0.1, "y", 1);
+                            anitext('"지금까지 수없이 많은 장비를 만들었지.."', 0.1, "y", 1);
                             br();
-                            anitext('"3-2 ', 0.1, "y", 0.5);
-                            anitext('3-3"', 0.1, "y", 2);
+                            anitext('"실패를 두려워하면 ', 0.1, "y", 0.5);
+                            anitext('그 무엇도 할 수 없다네"', 0.1, "y", 2);
                         } else if (trand === 4) {
-                            anitext('"4-1"', 0.1, "y", 1);
+                            anitext('"드워프는 처음 보는겐가?"', 0.1, "y", 1);
                             br();
-                            anitext('"4-2"', 0.3, "y", 2);
+                            anitext('"자네보다야 작지만, 나름 오래 살았다네"', 0.3, "y", 2);
                         } else {
-                            anitext('"5-1"', 0.1, "y", 1);
+                            anitext('"자네.. 혹시.."', 0.2, "y", 2);
                             br();
-                            anitext('"5-2"', 0.1, "y", 2);
+                            anitext('"아닐세.."', 0.1, "y", 2);
                         }
                         break;
                     case 4:
