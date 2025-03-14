@@ -1,7 +1,3 @@
-// import chalk from "chalk";
-// import figlet from "figlet";
-// import readlineSync from "readline-sync";
-
 const { vil } = require("./vil");
 const chalk = require("chalk");
 const figlet = require("figlet");
@@ -75,12 +71,8 @@ const { givbuff, buffs } = require("./buffs");
 const { givskill, skills } = require("./skills");
 const fs = require('fs');
 const { quest } = require('./quest');
-
 let tsmon = _tsmon;
-// const content = "Hello, world!";
-
-// const path = require('path');
-
+const musicPlayer = require('play-sound')(opts = {})
 
 
 function openiv() {
@@ -1908,6 +1900,9 @@ function start() {
   handleUserInput();
   gend = 0;
 }
+musicPlayer.play('music.mp3', function(err){
+  if (err) throw err
+})
 while (true) {
   start();
 }

@@ -1,4 +1,4 @@
-const { default: chalk } = require("chalk")
+const chalk = require("chalk");
 const { givdebuff, debuffs, givbuff, buffs } = require("./buffs")
 const { rand, anitext, br, cl, aniprt } = require("./func")
 // const { Gdata } = require("./G-data")
